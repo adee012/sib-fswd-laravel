@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\categories;
 use App\Models\products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -67,6 +68,7 @@ class ProductsController extends Controller
             'price' => $request->price,
             'image' => $fileName,
             'status' => 'waiting',
+            'created_by' => Auth::user()->id
         ]);
 
         return redirect('/ProductList')->with('toast_success', 'Product Berhasil Disimpan!');
@@ -79,6 +81,12 @@ class ProductsController extends Controller
     {
         $products = products::all();
         return view('products.editProducts', compact('products'));
+    }
+
+    public function validation()
+    {
+        $products = products::all();
+        return view('products.validationProduct', compact('products'));
     }
 
     /**
@@ -151,6 +159,43 @@ class ProductsController extends Controller
         // Delete data dari database 
         $products->delete();
 
-        return redirect('/ProductList')->with('toast_success', 'Product berhasil dihapus!!');
+        return back()->with('toast_success', 'Product berhasil dihapus!!');
+    }
+
+    public function accepted(Request $request, $id)
+    {
+
+        $products = products::where('id', $request->id)->first();
+
+
+        if ($products->status == 'accepted') {
+            return back()->with('warning', 'product has been accepted!!');
+        }
+
+        $products->update([
+            'status' => 'accepted',
+            'verified_at' => now(),
+            'verified_by' => Auth::user()->id
+        ]);
+        // dd($products);
+
+        return redirect('/validation-product')->with('toast_success', 'product has been successfully accepted!!');
+    }
+
+    public function rejected(Request $request, $id)
+    {
+        $products = products::where('id', $request->id)->first();
+
+        if ($products->status == 'rejected') {
+            return back()->with('warning', 'product has been rejected!!');
+        }
+
+        $products->update([
+            'status' => 'rejected',
+            'verified_at' => now(),
+            'verified_by' => Auth::user()->id
+        ]);
+
+        return redirect('/validation-product')->with('toast_success', 'product has been successfully rejected!!');
     }
 }

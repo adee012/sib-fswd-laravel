@@ -44,13 +44,6 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                            <div class="d-flex justify-content-center py-4">
-                                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">Adpers Store Admin</span>
-                                </a>
-                            </div><!-- End Logo -->
-
                             <div class="card mb-3">
 
                                 <div class="card-body">
@@ -77,8 +70,8 @@
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
-                                            <input type="password" name="password" class="form-control"
-                                                id="yourPassword" required>
+                                            <input type="password" name="password" class="form-control" id="show"
+                                                required>
                                             <div class="invalid-feedback">Please enter your password!</div>
 
                                         </div>
@@ -90,11 +83,13 @@
                                         @enderror
                                         <div class="col-12">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="remember"
-                                                    value="true" id="rememberMe">
-                                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                                                <input class="form-check-input" type="checkbox" onclick="myfunction()">
+                                                <label class="form-check-label" for="show">Show Password</label>
                                             </div>
                                         </div>
+
+
+
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit"
                                                 name="login">Login</button>
@@ -106,10 +101,6 @@
                                     </form>
 
                                 </div>
-                            </div>
-
-                            <div class="copyright fs-6">
-                                <h6> &copy; Copyright <span class="text-primary">AdpersStore</span>. Ade Dwi Putra </h6>
                             </div>
 
                         </div>
@@ -137,6 +128,17 @@
     {{-- Template Main JS File --}}
     <script src="{{ asset('admin/js/main.js') }}"></script>
     <script src="https:://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function myfunction() {
+            var show = document.getElementById('show');
+            if (show.type == 'password') {
+                show.type = 'text';
+            } else {
+                show.type = 'password';
+            }
+        }
+    </script>
 
     @if ($message = Session::get('failed'))
         <script>

@@ -20,7 +20,7 @@ class usersTableSeeder extends Seeder
             'avatar' => 'img.png',
             'phone' => '085377805905',
             'addres' => 'Pematang Lumut, Jambi',
-            'password' => 'ade123',
+            'password' => 'Ade1234@',
         ]);
     }
 }

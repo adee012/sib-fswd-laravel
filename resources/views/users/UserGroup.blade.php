@@ -22,54 +22,58 @@
                         <div class="card-body">
                             <div class="card-header">
                                 <!-- Select to select admin or staff -->
+                                <button class="text-start btn btn-white border text-dark dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select role
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ url('/UserGroup') }}">All</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/admin-group') }}">Admin</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/staff-group') }}">Staff</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/user-group') }}">User</a></li>
 
+                                </ul>
+                                <hr>
                             </div>
                             <!-- Table with stripped rows -->
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered " width="100%" cellspacing="0">
-                                        <thead>
+                            <div class="table-responsive">
+                                <table id="table" class="text-center table table-bordered table-striped" width="100%"
+                                    cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Email</th>
+                                            <th style="width:15%">Name</th>
+                                            <th>Role</th>
+                                            <th>Phone</th>
+                                            <th style="width:15%">Addres</th>
+                                            <th>Avatar</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @forelse ($users as $u)
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Action</th>
-                                                <th>Email</th>
-                                                <th>Name</th>
-                                                <th>Role</th>
-                                                <th>Avatar</th>
-                                                <th>Phone</th>
-                                                <th>Addres</th>
-                                                <th>Password</th>
-                                                <th>Created At</th>
-                                                <th>Updated At</th>
+                                                <td>{{ $u->id }}</td>
+                                                <td>{{ $u->email }}</td>
+                                                <td>{{ $u->name }}</td>
+                                                <td>{{ $u->role }}</td>
+                                                <td>{{ $u->phone }}</td>
+                                                <td>{{ $u->addres }}</td>
+                                                <td class="text-center"><img width="100px" height="100px"
+                                                        src="{{ asset('storage/avatar') }}/{{ $u->avatar }}">
+                                                </td>
                                             </tr>
-                                        </thead>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="11">
+                                                    Data Tidak Ada
+                                                </td>
+                                            </tr>
+                                        @endforelse
 
-                                        <tbody>
-                                            @forelse ($users as $u)
-                                                <tr>
-                                                    <td>{{ $u->id }}</td>
-                                                    <td>--</td>
-                                                    <td>{{ $u->email }}</td>
-                                                    <td>{{ $u->name }}</td>
-                                                    <td>{{ $u->role }}</td>
-                                                    <td>{{ $u->avatar }}</td>
-                                                    <td>{{ $u->phone }}</td>
-                                                    <td>{{ $u->address }}</td>
-                                                    <td>{{ $u->password }}</td>
-                                                    <td>{{ $u->created_at }}</td>
-                                                    <td>{{ $u->updated_at }}</td>
-                                                </tr>
-                                            @empty
-                                                <tr>
-                                                    <td class="text-center" colspan="11">
-                                                        Data Tidak Ada
-                                                    </td>
-                                                </tr>
-                                            @endforelse
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                             <!-- End Table with stripped rows -->
 
@@ -81,4 +85,42 @@
         </section>
 
     </main><!-- End #main -->
+@endsection
+@section('script')
+    <script>
+        // let group = $('#filter_role').val();
+
+        // const table = $('#table').DataTable({
+        //     "ajax": {
+        //         url: "{{ url('/UserGroup') }}",
+        //         type: "POST",
+        //         data: function(d) {
+        //             d.group = group;
+
+        //             return d;
+        //         }
+        //     }
+        // });
+
+        // $(".filter").on('change', function() {
+        //     group = $('#filter_role').val();
+        //     table.ajax.reload(null, false);
+        // })
+
+        // $(document).ready(function() {
+        //     $('#filter_role').on('change', function() {
+        //         var filter = $(this).val();
+        //         $.ajax({
+        //             url: "{{ url('/UserGroup') }}",
+        //             type: "GET",
+        //             data: {
+        //                 'role': role
+        //             },
+        //             success: function(data) {
+        //                 console.log(data);
+        //             }
+        //         });
+        //     });
+        // });
+    </script>
 @endsection

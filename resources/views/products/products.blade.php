@@ -22,15 +22,14 @@
                         <div class="card-body">
                             <div class="card-header">
                                 <!-- Button to Open the Modal -->
-                                <a href="/addProduct" type="button" class="btn btn-primary">
-                                    Add products
+                                <a href="/addProduct" type="button" class="btn btn-primary"> Add products
                                 </a>
+
                             </div>
                             <!-- Table with stripped rows -->
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="text-center table table-striped table-bordered" width="100%"
-                                        cellspacing="0">
+                                    <table class="text-center table table-striped " width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -40,7 +39,9 @@
                                                 <th class="w-25">Description</th>
                                                 <th>Status</th>
                                                 <th>Image</th>
-                                                <th>Action</th>
+                                                @if (Auth::user()->role == 'admin')
+                                                    <th>Action</th>
+                                                @endif
                                             </tr>
                                         </thead>
 
@@ -53,26 +54,23 @@
                                                     <td>${{ $p->price }} USD</td>
                                                     <td class="text-start">{{ $p->description }}</td>
                                                     <td>{{ $p->status }}</td>
-                                                    <td><img width="100px" height="100px"
+                                                    <td><img width="100px" height="100px" class="rounded"
                                                             src="{{ asset('storage/image_product') }}/{{ $p->image }}">
                                                     </td>
                                                     @if (Auth::user()->role == 'admin')
                                                         <td>
                                                             {{-- button update --}}
                                                             <a href="/product-edit/{{ $p->id }}"
-                                                                class="btn btn-primary me-2" role="button"><i
-                                                                    class="bi bi-pencil-square"></i></a>
-
-                                                            {{-- button view --}}
-                                                            {{-- <a href="" class="btn btn-warning" role="button"
-                                                                data-bs-toggle="modal" data-bs-target="#largeModal"><i
-                                                                    class="bi bi-eye"></i></a> --}}
+                                                                class="btn btn-primary " role="button"><i
+                                                                    class="bi bi-pencil-square"
+                                                                    style="font-size:20px"></i></a>
 
                                                             {{-- button delete --}}
                                                             <a href="/product-delete/{{ $p->id }}"
-                                                                class="btn btn-danger ms-2" role="button"
-                                                                data-confirm-delete="true"><i
-                                                                    class="bi bi-trash-fill"></i></a>
+                                                                class=" btn btn-danger" role="button"
+                                                                data-confirm-delete="true"><i class="bi bi-trash-fill"
+                                                                    style="font-size:20px"></i></a>
+                                                        </td>
                                                         </td>
                                                     @endif
 

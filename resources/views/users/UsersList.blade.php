@@ -29,18 +29,19 @@
                             <!-- Table with stripped rows -->
 
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped" width="100%" cellspacing="0">
+                                <table class="text-center table table-bordered table-striped" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Email</th>
-                                            <th>Name</th>
+                                            <th style="width:15%">Name</th>
                                             <th>Role</th>
                                             <th>Phone</th>
-                                            <th>Addres</th>
+                                            <th style="width:15%">Addres</th>
                                             <th>Avatar</th>
                                             @if (Auth::user()->role == 'admin')
-                                                <th>Action</th>
+                                                <th style="width:15%">Action</th>
                                             @endif
                                         </tr>
                                     </thead>

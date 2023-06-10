@@ -2,434 +2,637 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}" />
-    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Adpers Store</title>
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/themify-icons/themify-icons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/nice-select/nice-select.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/owl.theme.default.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/owl.carousel.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 </head>
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+<body>
+    <!--================ Start Header Menu Area =================-->
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <a class="navbar-brand logo_h" href="index.html">
+                        <h3>Adpers <span class="text-primary">Store</span></h3>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Shop</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="category.html">Shop Category</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="single-product.html">Product Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="checkout.html">Product Checkout</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="confirmation.html">Confirmation</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="cart.html">Shopping Cart</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Blog</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="single-blog.html">Blog Details</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Pages</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="login.html">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="register.html">Register</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="tracking-order.html">Tracking</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
 
-    <!-- BOTTOM NAV -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Adpers<span class="dot"> Store</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#slider">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Catalog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#reviews">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                </ul>
-                <a href="login" class="btn btn-brand ms-lg-3">Login</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- SLIDER -->
-    <div id="slider" class="owl-carousel owl-theme hero-slider">
-        <div class="slide slide1 "
-            style="background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('{{ asset('assets/img/bg-shoes2.jpg') }}');background-position:center;background-size:cover;background-repeat: no-repeat;">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div class="col-12 text-center text-white">
-                        <h6 class="text-white text-uppercase">
-                            Need or Want
-                        </h6>
-                        <h1 class="display-3 my-4">Check the collection<br />at adpers shop</h1>
-                        <a href="#" class="btn btn-brand">Get Started</a>
-                        <a href="#" class="btn btn-outline-light ms-3">Our work</a>
+                        <ul class="nav-shop">
+                            <li class="nav-item">
+                                <button><i class="ti-search"></i></button>
+                            </li>
+                            <li class="nav-item">
+                                <button>
+                                    <i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <a class="button button-header" href="{{ url('/login') }}">Login</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </nav>
         </div>
-        <div class="slide slide2"
-            style="background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('{{ asset('assets/img/bg-shoes1.jpg') }}');background-position:center;background-size:cover;background-repeat: no-repeat;">
+    </header>
+    <!--================ End Header Menu Area =================-->
+
+    <main class="site-main">
+        <!--================ Hero banner start =================-->
+        <section class="hero-banner">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($Carousels as $key => $banner)
+                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <img class="d-block w-100" style="max-height: 720px"
+                                src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}"
+                                alt="First slide" />
+                        </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+        <!--================ Hero banner start =================-->
+
+        <!-- ================ trending product section start ================= -->
+        <section class="section-margin calc-60px">
+            <div class="container">
+                <div class="section-intro pb-60px">
+                    <p>Popular Item in the market</p>
+                    <h2>Trending <span class="section-intro__style">Product</span></h2>
+                </div>
+                <div class="row">
+                    @foreach ($products as $key => $value)
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="card text-center card-product">
+                                <div class="card-product__img">
+                                    <img class="card-img"
+                                        src="{{ asset('storage/image_product') }}/{{ $value->image }}"
+                                        alt="" />
+                                    <ul class="card-product__imgOverlay">
+                                        <li>
+                                            <button><i class="ti-eye"></i></button>
+                                        </li>
+                                        <li>
+                                            <button><i class="ti-shopping-cart"></i></button>
+                                        </li>
+                                        <li>
+                                            <button><i class="ti-heart"></i></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ $value->Categories->name }}</p>
+                                    <h4 class="card-product__title">
+                                        <a href="single-product.html">{{ $value->name }}</a>
+                                    </h4>
+                                    <p class="card-product__price">${{ $value->price }} USD</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        <!-- ================ trending product section end ================= -->
+
+        <!-- ================ offer section start ================= -->
+        <section class="offer" id="parallax-1" data-anchor-target="#parallax-1"
+            data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-10 offset-lg-1 text-white">
-                        <h6 class="text-white text-uppercase">
-                            Stability and Flexibility
-                        </h6>
-                        <h1 class="display-3 my-4">Improve your appearance<br />With new shoes</h1>
-                        <a href="#" class="btn btn-brand">Get Started</a>
-                        <a href="#" class="btn btn-outline-light ms-3">Our work</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- SERVICE START --}}
-    <section id="services" class="text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="intro">
-                        <h1>Our Shoes Gallery</h1>
-                        <p class="mx-auto">
-                            Contrary to popular belief, Lorem Ipsum is not simply random
-                            text. It has roots in a piece of classical Latin literature from
-                            45 BC, making it over 2000 years old
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <img class="w-100 rounded-top" src="{{ asset('assets/img/n-sport 1.png') }}" alt="" />
-                    <div class="service">
-
-                        <h5><span class="text-primary">Sport:</span> Nike Basketball </h5>
-                        <p>
-                            Light, Flexible, and Forward. this shoes are designed for playing basketball, make the
-                            spirit of playing passionate.
-                        </p>
-
-                        <h6 class="text-start text-primary fs-5">$35,7 USD</h6>
-
-                        <a class="btn btn-primary w-100" href="https://www.instagram.com/ade.designn/?hl=id"
-                            role="button" target="_blank">BUY NOW</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <img class="w-100 rounded-top" src="{{ asset('assets/img/n-sport2.png') }}" alt="" />
-                    <div class="service">
-                        <h5><span class="text-primary">Sport:</span> Nike Running</h5>
-                        <p>
-                            Perfect for running. The sure steps are Nike Sport steps, make sure your steps are using
-                            quality shoes!
-                        </p>
-
-                        <h6 class="text-start text-primary fs-5">$32,3 USD</h6>
-
-                        <a class="btn btn-primary w-100" href="https://www.instagram.com/ade.designn/?hl=id"
-                            role="button" target="_blank">BUY NOW</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <img class="w-100 rounded-top" src="{{ asset('assets/img/c-high 1.png') }}" alt="" />
-                    <div class="service">
-                        <h5><span class="text-primary">Casual:</span> Converse High</h5>
-                        <p>
-                            Satisfying shoes, satisfying life. Find original Converse sneakers only at the Adpers Store.
-                        </p>
-
-                        <h6 class="text-start text-primary fs-5">$21,5 USD</h6>
-
-                        <a class="btn btn-primary w-100" href="https://www.instagram.com/ade.designn/?hl=id"
-                            role="button" target="_blank">BUY NOW</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <img class="w-100 rounded-top" src="{{ asset('assets/img/n-sport 1.png') }}" alt="" />
-                    <div class="service">
-
-                        <h5><span class="text-primary">Sport:</span> Nike Basketball </h5>
-                        <p>
-                            Light, Flexible, and Forward. this shoes are designed for playing basketball, make the
-                            spirit of playing passionate.
-                        </p>
-
-                        <h6 class="text-start text-primary fs-5">$35,7 USD</h6>
-
-                        <a class="btn btn-primary w-100" href="https://www.instagram.com/ade.designn/?hl=id"
-                            role="button" target="_blank">BUY NOW</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <img class="w-100 rounded-top" src="{{ asset('assets/img/n-sport2.png') }}" alt="" />
-                    <div class="service">
-                        <h5><span class="text-primary">Sport:</span> Nike Running</h5>
-                        <p>
-                            Perfect for running. The sure steps are Nike Sport steps, make sure your steps are using
-                            quality shoes!
-                        </p>
-
-                        <h6 class="text-start text-primary fs-5">$32,3 USD</h6>
-
-                        <a class="btn btn-primary w-100" href="https://www.instagram.com/ade.designn/?hl=id"
-                            role="button" target="_blank">BUY NOW</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <img class="w-100 rounded-top" src="{{ asset('assets/img/c-high 1.png') }}" alt="" />
-                    <div class="service">
-                        <h5><span class="text-primary">Casual:</span> Converse High</h5>
-                        <p>
-                            Satisfying shoes, satisfying life. Find original Converse sneakers only at the Adpers Store.
-                        </p>
-
-                        <h6 class="text-start text-primary fs-5">$21,5 USD</h6>
-
-                        <a class="btn btn-primary w-100" href="https://www.instagram.com/ade.designn/?hl=id"
-                            role="button" target="_blank">BUY NOW</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {{-- SERVICE START --}}
-
-
-
-    <section class="bg-light" id="reviews">
-        <div class="owl-theme owl-carousel reviews-slider container">
-            <div class="review">
-                <div class="person">
-                    <img src="img/team_1.jpg" alt="" />
-                    <h5>Ralph Edwards</h5>
-                    <small>Market Development Manager</small>
-                </div>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quis,
-                    rem culpa labore voluptate ullam! In, nostrum. Dicta, vero nihil.
-                    Delectus minus vitae rerum voluptatum, excepturi incidunt ut, enim
-                    nam exercitationem optio ducimus!
-                </h3>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <i class="bx bxs-quote-alt-left"></i>
-            </div>
-            <div class="review">
-                <div class="person">
-                    <img src="img/team_2.jpg" alt="" />
-                    <h5>Ralph Edwards</h5>
-                    <small>Market Development Manager</small>
-                </div>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quis,
-                    rem culpa labore voluptate ullam! In, nostrum. Dicta, vero nihil.
-                    Delectus minus vitae rerum voluptatum, excepturi incidunt ut, enim
-                    nam exercitationem optio ducimus!
-                </h3>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <i class="bx bxs-quote-alt-left"></i>
-            </div>
-            <div class="review">
-                <div class="person">
-                    <img src="img/team_3.jpg" alt="" />
-                    <h5>Ralph Edwards</h5>
-                    <small>Market Development Manager</small>
-                </div>
-                <h3>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut quis,
-                    rem culpa labore voluptate ullam! In, nostrum. Dicta, vero nihil.
-                    Delectus minus vitae rerum voluptatum, excepturi incidunt ut, enim
-                    nam exercitationem optio ducimus!
-                </h3>
-                <div class="stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <i class="bx bxs-quote-alt-left"></i>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="intro">
-                        <h6>Blog</h6>
-                        <h1>Blog Posts</h1>
-                        <p class="mx-auto">
-                            Contrary to popular belief, Lorem Ipsum is not simply random
-                            text. It has roots in a piece of classical Latin literature from
-                            45 BC, making it over 2000 years old
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <article class="blog-post">
-                        <img src="img/project5.jpg" alt="" />
-                        <a href="#" class="tag">Web Design</a>
-                        <div class="content">
-                            <small>01 Dec, 2022</small>
-                            <h5>Web Design trends in 2022</h5>
-                            <p>
-                                Contrary to popular belief, Lorem Ipsum is not simply random
-                                text. It has roots in a piece of classical Latin literature
-                                from
-                            </p>
+                    <div class="col-xl-5">
+                        <div class="offer__content text-center">
+                            <h3>Up To 50% Off</h3>
+                            <h4>Winter Sale</h4>
+                            <p>Him she'd let them sixth saw light</p>
+                            <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
                         </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="blog-post">
-                        <img src="img/project4.jpg" alt="" />
-                        <a href="#" class="tag">Programming</a>
-                        <div class="content">
-                            <small>01 Dec, 2022</small>
-                            <h5>Web Design trends in 2022</h5>
-                            <p>
-                                Contrary to popular belief, Lorem Ipsum is not simply random
-                                text. It has roots in a piece of classical Latin literature
-                                from
-                            </p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="blog-post">
-                        <img src="img/project2.jpg" alt="" />
-                        <a href="#" class="tag">Marketing</a>
-                        <div class="content">
-                            <small>01 Dec, 2022</small>
-                            <h5>Web Design trends in 2022</h5>
-                            <p>
-                                Contrary to popular belief, Lorem Ipsum is not simply random
-                                text. It has roots in a piece of classical Latin literature
-                                from
-                            </p>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- ================ offer section end ================= -->
 
-    <footer
-        style="background-image:linear-gradient(
-            0deg,
-            rgba(8, 32, 50, 0.9),
-            rgba(8, 32, 50, 0.9)
-        ),url('{{ asset('assets/img/bg-shoes1.jpg') }}');background-position:center;background-size:cover;background-repeat: no-repeat;">
-        <div class="footer-top text-center">
+        <!-- ================ Best Selling item  carousel ================= -->
+        <section class="section-margin calc-60px">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h4 class="navbar-brand">Adpers<span class="dot"> Store</span></h4>
-                        <p>
-                            Look cool with new shoes. Fulfill your needs by shopping at the Adpers store
-                        </p>
-                        <div class="col-auto social-icons">
-                            <a href="https://www.linkedin.com/in/ade-dwi-putra-87525a181/" target="_blank"><i
-                                    class="bx bxl-linkedin"></i></a>
-                            <a href="https://www.instagram.com/ade.designn/?hl=id" target="_blank"><i
-                                    class="bx bxl-instagram"></i></a>
-                            <a href="https://github.com/adee012" target="_blank"><i class="bx bxl-github"></i></a>
-                            <a href="https://dribbble.com/ddwptrr_" target="_blank"><i
-                                    class="bx bxl-dribbble"></i></a>
+                <div class="section-intro pb-60px">
+                    <p>Popular Item in the market</p>
+                    <h2>Best <span class="section-intro__style">Sellers</span></h2>
+                </div>
+                <div class="owl-carousel owl-theme" id="bestSellerCarousel">
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="{{ asset('assets/img/product/product1.png') }}"
+                                alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-auto conditions-section">
-                            <a href="#">privacy</a>
-                            <a href="#">terms</a>
-                            <a href="#"><i>disclaimer</i></a>
+                        <div class="card-body">
+                            <p>Accessories</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Quartz Belt Watch</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="{{ asset('assets/img/product/product1.png') }}"
+                                alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Beauty</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Women Freshwash</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="{{ asset('assets/img/product/product1.png') }}"
+                                alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Decor</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Room Flash Light</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="img/product/product4.png" alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Decor</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Room Flash Light</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="img/product/product1.png" alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Accessories</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Quartz Belt Watch</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="img/product/product2.png" alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Beauty</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Women Freshwash</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="img/product/product3.png" alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Decor</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Room Flash Light</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center card-product">
+                        <div class="card-product__img">
+                            <img class="img-fluid" src="img/product/product4.png" alt="" />
+                            <ul class="card-product__imgOverlay">
+                                <li>
+                                    <button><i class="ti-search"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-shopping-cart"></i></button>
+                                </li>
+                                <li>
+                                    <button><i class="ti-heart"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <p>Decor</p>
+                            <h4 class="card-product__title">
+                                <a href="single-product.html">Room Flash Light</a>
+                            </h4>
+                            <p class="card-product__price">$150.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================ Best Selling item  carousel end ================= -->
+
+        <!-- ================ Blog section start ================= -->
+        <section class="blog">
+            <div class="container">
+                <div class="section-intro pb-60px">
+                    <p>Popular Item in the market</p>
+                    <h2>Latest <span class="section-intro__style">News</span></h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        <div class="card card-blog">
+                            <div class="card-blog__img">
+                                <img class="card-img rounded-0" src="img/blog/blog1.png" alt="" />
+                            </div>
+                            <div class="card-body">
+                                <ul class="card-blog__info">
+                                    <li><a href="#">By Admin</a></li>
+                                    <li>
+                                        <a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a>
+                                    </li>
+                                </ul>
+                                <h4 class="card-blog__title">
+                                    <a href="single-blog.html">The Richland Center Shooping News and weekly shooper</a>
+                                </h4>
+                                <p>
+                                    Let one fifth i bring fly to divided face for bearing divide
+                                    unto seed. Winged divided light Forth.
+                                </p>
+                                <a class="card-blog__link" href="#">Read More <i
+                                        class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        <div class="card card-blog">
+                            <div class="card-blog__img">
+                                <img class="card-img rounded-0" src="img/blog/blog2.png" alt="" />
+                            </div>
+                            <div class="card-body">
+                                <ul class="card-blog__info">
+                                    <li><a href="#">By Admin</a></li>
+                                    <li>
+                                        <a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a>
+                                    </li>
+                                </ul>
+                                <h4 class="card-blog__title">
+                                    <a href="single-blog.html">The Shopping News also offers top-quality printing
+                                        services</a>
+                                </h4>
+                                <p>
+                                    Let one fifth i bring fly to divided face for bearing divide
+                                    unto seed. Winged divided light Forth.
+                                </p>
+                                <a class="card-blog__link" href="#">Read More <i
+                                        class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        <div class="card card-blog">
+                            <div class="card-blog__img">
+                                <img class="card-img rounded-0" src="img/blog/blog3.png" alt="" />
+                            </div>
+                            <div class="card-body">
+                                <ul class="card-blog__info">
+                                    <li><a href="#">By Admin</a></li>
+                                    <li>
+                                        <a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a>
+                                    </li>
+                                </ul>
+                                <h4 class="card-blog__title">
+                                    <a href="single-blog.html">Professional design staff and efficient equipment you’ll
+                                        find we offer</a>
+                                </h4>
+                                <p>
+                                    Let one fifth i bring fly to divided face for bearing divide
+                                    unto seed. Winged divided light Forth.
+                                </p>
+                                <a class="card-blog__link" href="#">Read More <i
+                                        class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================ Blog section end ================= -->
+
+        <!-- ================ Subscribe section start ================= -->
+        <section class="subscribe-position">
+            <div class="container">
+                <div class="subscribe text-center">
+                    <h3 class="subscribe__title">Get Update From Anywhere</h3>
+                    <p>
+                        Bearing Void gathering light light his eavening unto dont afraid
+                    </p>
+                    <div id="mc_embed_signup">
+                        <form target="_blank"
+                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                            method="get" class="subscribe-form form-inline mt-5 pt-1">
+                            <div class="form-group ml-sm-auto">
+                                <input class="form-control mb-1" type="email" name="EMAIL"
+                                    placeholder="Enter your email" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Your Email Address '" />
+                                <div class="info"></div>
+                            </div>
+                            <button class="button button-subscribe mr-auto mb-1" type="submit">
+                                Subscribe Now
+                            </button>
+                            <div style="position: absolute; left: -5000px">
+                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                    type="text" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================ Subscribe section end ================= -->
+
+    </main>
+
+    <!--================ Start footer Area  =================-->
+    <footer class="footer">
+        <div class="footer-area">
+            <div class="container">
+                <div class="row section_gap">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget tp_widgets">
+                            <h4 class="footer_title large_title">Our Mission</h4>
+                            <p>
+                                So seed seed green that winged cattle in. Gathering thing made
+                                fly you're no divided deep moved us lan Gathering thing us
+                                land years living.
+                            </p>
+                            <p>
+                                So seed seed green that winged cattle in. Gathering thing made
+                                fly you're no divided deep moved
+                            </p>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                        <div class="single-footer-widget tp_widgets">
+                            <h4 class="footer_title">Quick Links</h4>
+                            <ul class="list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Product</a></li>
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="single-footer-widget instafeed">
+                            <h4 class="footer_title">Gallery</h4>
+                            <ul class="list instafeed d-flex flex-wrap">
+                                <li><img src="img/gallery/r1.jpg" alt="" /></li>
+                                <li><img src="img/gallery/r2.jpg" alt="" /></li>
+                                <li><img src="img/gallery/r3.jpg" alt="" /></li>
+                                <li><img src="img/gallery/r5.jpg" alt="" /></li>
+                                <li><img src="img/gallery/r7.jpg" alt="" /></li>
+                                <li><img src="img/gallery/r8.jpg" alt="" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget tp_widgets">
+                            <h4 class="footer_title">Contact Us</h4>
+                            <div class="ml-40">
+                                <p class="sm-head">
+                                    <span class="fa fa-location-arrow"></span>
+                                    Head Office
+                                </p>
+                                <p>123, Main Street, Your City</p>
+
+                                <p class="sm-head">
+                                    <span class="fa fa-phone"></span>
+                                    Phone Number
+                                </p>
+                                <p>
+                                    +123 456 7890 <br />
+                                    +123 456 7890
+                                </p>
+
+                                <p class="sm-head">
+                                    <span class="fa fa-envelope"></span>
+                                    Email
+                                </p>
+                                <p>
+                                    free@infoexample.com <br />
+                                    www.infoexample.com
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom text-center">
-            <p class="mb-0">Copyright 2023. Ade Dwi Putra</p>
 
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row d-flex">
+                    <p class="col-lg-12 footer-text text-center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        All rights reserved | This template is made with
+                        <i class="fa fa-heart" aria-hidden="true"></i> by
+                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
+    <!--================ End footer Area  =================-->
 
-    <!-- Modal -->
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-body p-0">
-                    <div class="container-fluid">
-                        <div class="row gy-4">
-                            <div class="col-lg-4 col-sm-12 bg-cover"
-                                style="background-image: url(img/c2.jpg); min-height: 300px">
-                                <div></div>
-                            </div>
-                            <div class="col-lg-8">
-                                <form class="p-lg-5 col-12 row g-3">
-                                    <div>
-                                        <h1>Get in touch</h1>
-                                        <p>
-                                            Fell free to contact us and we will get back to you as
-                                            soon as possible
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="userName" class="form-label">First name</label>
-                                        <input type="text" class="form-control" placeholder="Jon" id="userName"
-                                            aria-describedby="emailHelp" />
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="userName" class="form-label">Last name</label>
-                                        <input type="text" class="form-control" placeholder="Doe" id="userName"
-                                            aria-describedby="emailHelp" />
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="userName" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Johndoe@example.com"
-                                            id="userName" aria-describedby="emailHelp" />
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="exampleInputEmail1" class="form-label">Enter Message</label>
-                                        <textarea name="" placeholder="This is looking great and nice." class="form-control" id=""
-                                            rows="4"></textarea>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-brand">
-                                            Send Message
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/skrollr.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/nice-select/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/mail-script.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>

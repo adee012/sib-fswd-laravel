@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('carousels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('url');
             $table->string('banner');
             $table->boolean('is_active')->default(0)->nullable();
-            $table->enum('status', ['accepted', 'waiting', 'rejected']);
             $table->timestamps();
             $table->foreignId('created_by')->constrained('users')->nullable();
             $table->foreignId('verified_by')->constrained('users')->nullable();

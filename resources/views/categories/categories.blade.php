@@ -34,7 +34,7 @@
 
                                         <div class="col-1">
                                             <button type="submit" id="submitBtn" name="addCategory"
-                                                class="w-100 btn btn-primary">
+                                                class=" btn btn-primary">
                                                 Save
                                             </button>
                                         </div>
@@ -52,17 +52,17 @@
 
                             <h3 class="fs-4 mt-3 text-dark">Daftar Categories</h3>
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered text-center" width="100%"
+                                <table class="table table-striped text-center table-bordered" width="100%"
                                     cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            @if (Auth::user()->role == 'admin')
-                                                <th>Action</th>
-                                            @endif
                                             <th>Name</th>
                                             <th>Created At</th>
                                             <th>Updated At</th>
+                                            @if (Auth::user()->role == 'admin')
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
                                     </thead>
 
@@ -70,8 +70,12 @@
                                         @forelse ($category as $c)
                                             <tr>
                                                 <td>{{ $c->id }}</td>
+
+                                                <td>{{ $c->name }}</td>
+                                                <td>{{ $c->created_at }}</td>
+                                                <td>{{ $c->updated_at }}</td>
                                                 @if (Auth::user()->role == 'admin')
-                                                    <td class="d-flex">
+                                                    <td>
                                                         {{-- button update --}}
                                                         <button type="button" class="btn btn-primary"
                                                             data-bs-toggle="modal"
@@ -129,10 +133,6 @@
                                                             data-confirm-delete="true" class="btn btn-danger"
                                                             role="button"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
-
-                                                    <td>{{ $c->name }}</td>
-                                                    <td>{{ $c->created_at }}</td>
-                                                    <td>{{ $c->updated_at }}</td>
                                                 @endif
                                             </tr>
                                         @empty

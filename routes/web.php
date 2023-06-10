@@ -24,9 +24,7 @@ use Illuminate\Support\Facades\Route;
 // Ketika sudah login maka harus logout untuk mengakses landingpage dan halaman login
 Route::middleware(['guest'])->group(function () {
     // Landing Page
-    Route::get('/', function () {
-        return view('index');
-    });
+    Route::get('/', [LandingController::class, 'index']);
     // Login
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
@@ -39,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
+
     // User List
     Route::get('/UsersList', [UsersController::class, 'index']);
     Route::get('/addUser', [UsersController::class, 'create']);
@@ -50,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
 
     // User Group
     Route::get('/UserGroup', [UsersController::class, 'group']);
+    Route::get('/admin-group', [UsersController::class, 'role_admin']);
+    Route::get('/staff-group', [UsersController::class, 'role_staff']);
+    Route::get('/user-group', [UsersController::class, 'role_user']);
 
     // Products
     Route::get('/ProductList', [ProductsController::class, 'index']);
@@ -58,6 +60,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/product-edit/{id}', [ProductsController::class, 'edit']);
     Route::put('/product-edit', [ProductsController::class, 'update']);
     Route::get('/product-delete/{id}', [ProductsController::class, 'destroy']);
+    Route::get('/validation-product', [ProductsController::class, 'validation']);
+    Route::put('/products-rejected/{id}', [ProductsController::class, 'rejected']);
+    Route::put('/products-accepted/{id}', [ProductsController::class, 'accepted']);
 
     // Categories
     Route::get('/categories', [CategoriesController::class, 'index']);
@@ -71,11 +76,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/carousels', [CarouselsController::class, 'index']);
     Route::get('/addCarousels', [CarouselsController::class, 'create']);
     Route::post('/addCarousels', [CarouselsController::class, 'store']);
-    Route::get('/carousels-edit/{id}', [CarouselsController::class, 'edit']);
-    Route::put('/carousels-edit', [CarouselsController::class, 'update']);
+    Route::get('/carousels-accepted/{id}', [CarouselsController::class, 'edit']);
+    Route::put('/carousels-rejected/{id}', [CarouselsController::class, 'rejected']);
+    Route::put('/carousels-accepted/{id}', [CarouselsController::class, 'update']);
     Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy']);
 });
 
 Route::get('/home', function () {
-    return redirect('/dashboard');
+    return back();
 });

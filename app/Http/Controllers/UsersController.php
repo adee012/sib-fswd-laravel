@@ -18,16 +18,30 @@ class UsersController extends Controller
     public function index()
     {
         $users = users::all();
-
-        $title = 'Delete User!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
         return view('users.UsersList', compact('users'));
     }
 
-    public function group()
+    public function group(Request $request)
     {
         $users = users::all();
+        return view('users.UserGroup', compact('users'));
+    }
+
+    public function role_staff(Request $request)
+    {
+        $users = users::where('role', 'staff')->get();
+        return view('users.UserGroup', compact('users'));
+    }
+
+    public function role_user(Request $request)
+    {
+        $users = users::where('role', 'user')->get();
+        return view('users.UserGroup', compact('users'));
+    }
+
+    public function role_admin(Request $request)
+    {
+        $users = users::where('role', 'admin')->get();
         return view('users.UserGroup', compact('users'));
     }
 
