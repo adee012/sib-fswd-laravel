@@ -2,16 +2,7 @@
 
 @section('content')
     <main id="main" class="main">
-        <div class="pagetitle">
-            <h1>Dashboard</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </nav>
-        </div>
-        {{-- End Page Title --}}
+
 
         <section class="section dashboard">
             <div class="row">
@@ -31,10 +22,10 @@
                                                 <div class="text-center card h-100 ">
                                                     <img src="{{ asset('storage/image_product') }}/{{ $product->image }}"
                                                         class="card-img-top" alt="hero" style="height:270px">
-                                                    <div class="card-body mb-0 p-0 ">
+                                                    <div class="card-body mb-0 py-0 ">
                                                         <h3 class="card-title">{{ $product->name }}</h3>
                                                         <h6 class="fs-5 fw-bold text-primary">
-                                                            ${{ $product->price }}USD
+                                                            ${{ $product->price }} USD
                                                         </h6>
                                                         <p class="text-start">
                                                             {{ $product->description }}

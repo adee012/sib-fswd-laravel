@@ -6,7 +6,7 @@
             <h1 class="fs-2">User List</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item">Users</li>
                     <li class="breadcrumb-item active">User List</li>
                 </ol>
@@ -64,14 +64,10 @@
                                                         <a href="/users-edit/{{ $u->id }}" class="btn btn-primary"
                                                             role="button"><i class="bi bi-pencil-square"></i></a>
 
-                                                        {{-- button view --}}
-                                                        {{-- <a href="" class="btn btn-warning" role="button"
-                                                                data-bs-toggle="modal" data-bs-target="#largeModal"><i
-                                                                    class="bi bi-eye"></i></a> --}}
-
                                                         {{-- button delete --}}
                                                         <a href="/users-delete/{{ $u->id }}" class="btn btn-danger"
-                                                            role="button" data-confirm-delete="true"><i
+                                                            role="button"
+                                                            onclick="return confirm('Are you sure you want to delete the user ?')"><i
                                                                 class="bi bi-trash-fill"></i></a>
                                                     </td>
                                                 @endif

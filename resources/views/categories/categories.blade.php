@@ -131,6 +131,7 @@
                                                         {{-- button delete --}}
                                                         <a href="/categories-delete/{{ $c->id }}"
                                                             data-confirm-delete="true" class="btn btn-danger"
+                                                            onclick="return confirm('Are you sure you want to delete the category ?')"
                                                             role="button"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
                                                 @endif

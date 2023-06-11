@@ -73,51 +73,55 @@
                                                 <p class="card-text fw-bold text-danger"> Reject </p>
                                             @endif
 
-                                            <div class="status ">
-                                                <form action="{{ url('/carousels-accepted') }}/{{ $banner->id }}"
-                                                    class="d-inline" method="post">
-                                                    @method('put')
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $banner->id }}">
-                                                    @if ($banner->is_active == 1)
-                                                        <button type="submit" name="accepted"
-                                                            class="btn
+                                            @if (Auth::user()->role == 'admin')
+                                                <div class="status ">
+                                                    <form action="{{ url('/carousels-accepted') }}/{{ $banner->id }}"
+                                                        class="d-inline" method="post">
+                                                        @method('put')
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $banner->id }}">
+                                                        @if ($banner->is_active == 1)
+                                                            <button type="submit" name="accepted"
+                                                                class="btn
                                                     btn-primary"
-                                                            style="font-size:24px"><i class="fa fa-thumbs-up"></i></button>
-                                                    @elseif ($banner->is_active != 1)
-                                                        <button type="submit" name="accepted"
-                                                            onclick="return confirm('Are you sure you want to accep the banner ?')"
-                                                            class="btn
+                                                                style="font-size:24px"><i
+                                                                    class="fa fa-thumbs-up"></i></button>
+                                                        @elseif ($banner->is_active != 1)
+                                                            <button type="submit" name="accepted"
+                                                                onclick="return confirm('Are you sure you want to accep the banner ?')"
+                                                                class="btn
                                                         btn-primary"
-                                                            style="font-size:24px"><i class="fa fa-thumbs-up"></i></button>
-                                                    @endif
+                                                                style="font-size:24px"><i
+                                                                    class="fa fa-thumbs-up"></i></button>
+                                                        @endif
 
-                                                </form>
+                                                    </form>
 
-                                                <form action="{{ url('/carousels-rejected') }}/{{ $banner->id }}"
-                                                    class="d-inline" method="post">
-                                                    @method('put')
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $banner->id }}">
+                                                    <form action="{{ url('/carousels-rejected') }}/{{ $banner->id }}"
+                                                        class="d-inline" method="post">
+                                                        @method('put')
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $banner->id }}">
 
-                                                    @if ($banner->is_active == 2)
-                                                        <button type="submit" name="rejected" class="btn btn-warning"
-                                                            style="color:#ffff; font-size:24px"><i
-                                                                class="fa fa-thumbs-down"></i></i></button>
-                                                    @elseif ($banner->is_active != 2)
-                                                        <button type="submit"
-                                                            onclick="return confirm('Are you sure you want to reject the banner ?')"name="rejected"
-                                                            class="btn btn-warning" style="color:#ffff; font-size:24px"><i
-                                                                class="fa fa-thumbs-down"></i></i></button>
-                                                    @endif
-                                                </form>
+                                                        @if ($banner->is_active == 2)
+                                                            <button type="submit" name="rejected" class="btn btn-warning"
+                                                                style="color:#ffff; font-size:24px"><i
+                                                                    class="fa fa-thumbs-down"></i></i></button>
+                                                        @elseif ($banner->is_active != 2)
+                                                            <button type="submit"
+                                                                onclick="return confirm('Are you sure you want to reject the banner ?')"name="rejected"
+                                                                class="btn btn-warning"
+                                                                style="color:#ffff; font-size:24px"><i
+                                                                    class="fa fa-thumbs-down"></i></i></button>
+                                                        @endif
+                                                    </form>
 
-                                                <a href="/carousels-delete/{{ $banner->id }}" id="deleteBtn"
-                                                    type="submit" name="delete" class="btn btn-danger"
-                                                    onclick="return confirm('Are you sure you want to delete the banner ?')"
-                                                    style="font-size:24px"><i class="fa fa-trash"></i></a>
-                                            </div>
-
+                                                    <a href="/carousels-delete/{{ $banner->id }}" id="deleteBtn"
+                                                        type="submit" name="delete" class="btn btn-danger"
+                                                        onclick="return confirm('Are you sure you want to delete the banner ?')"
+                                                        style="font-size:24px"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

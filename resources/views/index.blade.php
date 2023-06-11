@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <!--================ Start Header Menu Area =================-->
+    {{-- ================ Start Header Menu Area ================= --}}
     <header class="header_area">
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -25,80 +25,24 @@
                     <a class="navbar-brand logo_h" href="index.html">
                         <h3>Adpers <span class="text-primary">Store</span></h3>
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Shop</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="category.html">Shop Category</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="single-product.html">Product Details</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="checkout.html">Product Checkout</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="confirmation.html">Confirmation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="cart.html">Shopping Cart</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="blog.html">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="single-blog.html">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="register.html">Register</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="tracking-order.html">Tracking</a>
-                                    </li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#slider">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="#tranding">Popular</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#parallax-1">Discount</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#best-seller">Best Seller</a>
                             </li>
                         </ul>
 
                         <ul class="nav-shop">
-                            <li class="nav-item">
-                                <button><i class="ti-search"></i></button>
-                            </li>
-                            <li class="nav-item">
-                                <button>
-                                    <i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span>
-                                </button>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="button button-header" href="{{ url('/login') }}">Login</a>
                             </li>
@@ -108,19 +52,21 @@
             </nav>
         </div>
     </header>
-    <!--================ End Header Menu Area =================-->
+    {{-- ================ End Header Menu Area ================= --}}
 
     <main class="site-main">
-        <!--================ Hero banner start =================-->
-        <section class="hero-banner">
+        {{-- ================ Hero banner start ================= --}}
+        <section id="slider" class="hero-banner">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
                     @foreach ($Carousels as $key => $banner)
-                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                            <img class="d-block w-100" style="max-height: 720px"
-                                src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}"
-                                alt="First slide" />
-                        </div>
+                        @if ($banner->is_active == 1)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <img class="d-block w-100" style="max-height: 720px"
+                                    src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}"
+                                    alt="First slide" />
+                            </div>
+                        @endif
                     @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -133,10 +79,10 @@
                 </a>
             </div>
         </section>
-        <!--================ Hero banner start =================-->
+        {{-- ================ Hero banner start ================= --}}
 
-        <!-- ================ trending product section start ================= -->
-        <section class="section-margin calc-60px">
+        {{-- ================ trending product section start ================= --}}
+        <section id="tranding" class="section-margin calc-60px">
             <div class="container">
                 <div class="section-intro pb-60px">
                     <p>Popular Item in the market</p>
@@ -144,40 +90,46 @@
                 </div>
                 <div class="row">
                     @foreach ($products as $key => $value)
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="card text-center card-product">
-                                <div class="card-product__img">
-                                    <img class="card-img"
-                                        src="{{ asset('storage/image_product') }}/{{ $value->image }}"
-                                        alt="" />
-                                    <ul class="card-product__imgOverlay">
-                                        <li>
-                                            <button><i class="ti-eye"></i></button>
-                                        </li>
-                                        <li>
-                                            <button><i class="ti-shopping-cart"></i></button>
-                                        </li>
-                                        <li>
-                                            <button><i class="ti-heart"></i></button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body">
-                                    <p>{{ $value->Categories->name }}</p>
-                                    <h4 class="card-product__title">
-                                        <a href="single-product.html">{{ $value->name }}</a>
-                                    </h4>
-                                    <p class="card-product__price">${{ $value->price }} USD</p>
+                        @if ($value->status == 'accepted')
+                            <div class="col-md-6 col-lg-4 col-xl-3">
+                                <div class="card text-center card-product">
+                                    <div class="card-product__img">
+                                        <img class="card-img"
+                                            src="{{ asset('storage/image_product') }}/{{ $value->image }}"
+                                            alt="" />
+                                        <ul class="card-product__imgOverlay">
+                                            <li>
+                                                <a href="{{ url('/detail-product') }}/{{ $value->id }}"
+                                                    class="btn btn-primary" role="button"><i class="ti-eye"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/detail-product') }}/{{ $value->id }}"
+                                                    class="btn btn-primary" role="button"><i
+                                                        class="ti-shopping-cart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/detail-product') }}/{{ $value->id }}"
+                                                    class="btn btn-primary" role="button"><i class="ti-heart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>{{ $value->Categories->name }}</p>
+                                        <h4 class="card-product__title">
+                                            <a href="single-product.html">{{ $value->name }}</a>
+                                        </h4>
+                                        <p class="card-product__price">${{ $value->price }} USD</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
         </section>
-        <!-- ================ trending product section end ================= -->
+        {{-- ================ trending product section end ================= --}}
 
-        <!-- ================ offer section start ================= -->
+        {{-- ================ offer section start ================= --}}
         <section class="offer" id="parallax-1" data-anchor-target="#parallax-1"
             data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
             <div class="container">
@@ -185,253 +137,120 @@
                     <div class="col-xl-5">
                         <div class="offer__content text-center">
                             <h3>Up To 50% Off</h3>
-                            <h4>Winter Sale</h4>
-                            <p>Him she'd let them sixth saw light</p>
-                            <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
+                            <h4>Discount 6.6</h4>
+                            <p>Quality and original shoes</p>
+                            <a class="button button--active mt-3 mt-xl-4" href="{{ url('/login') }}">Shop Now</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- ================ offer section end ================= -->
+        {{-- ================ offer section end ================= --}}
 
-        <!-- ================ Best Selling item  carousel ================= -->
-        <section class="section-margin calc-60px">
+        {{-- ================ Best Selling item  carousel ================= --}}
+        <section id="best-seller" class="section-margin calc-60px">
             <div class="container">
                 <div class="section-intro pb-60px">
                     <p>Popular Item in the market</p>
                     <h2>Best <span class="section-intro__style">Sellers</span></h2>
                 </div>
                 <div class="owl-carousel owl-theme" id="bestSellerCarousel">
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="{{ asset('assets/img/product/product1.png') }}"
-                                alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Accessories</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Quartz Belt Watch</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="{{ asset('assets/img/product/product1.png') }}"
-                                alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Beauty</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Women Freshwash</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="{{ asset('assets/img/product/product1.png') }}"
-                                alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Decor</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Room Flash Light</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="img/product/product4.png" alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Decor</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Room Flash Light</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="img/product/product1.png" alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Accessories</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Quartz Belt Watch</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="img/product/product2.png" alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Beauty</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Women Freshwash</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="img/product/product3.png" alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Decor</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Room Flash Light</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
-
-                    <div class="card text-center card-product">
-                        <div class="card-product__img">
-                            <img class="img-fluid" src="img/product/product4.png" alt="" />
-                            <ul class="card-product__imgOverlay">
-                                <li>
-                                    <button><i class="ti-search"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-shopping-cart"></i></button>
-                                </li>
-                                <li>
-                                    <button><i class="ti-heart"></i></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <p>Decor</p>
-                            <h4 class="card-product__title">
-                                <a href="single-product.html">Room Flash Light</a>
-                            </h4>
-                            <p class="card-product__price">$150.00</p>
-                        </div>
-                    </div>
+                    @foreach ($products as $product)
+                        @if ($product->status == 'accepted')
+                            <div class="card text-center card-product">
+                                <div class="card-product__img">
+                                    <img class="img-fluid"
+                                        src="{{ asset('storage/image_product') }}/{{ $product->image }}"
+                                        alt="" />
+                                    <ul class="card-product__imgOverlay">
+                                        <li>
+                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
+                                                class="btn btn-primary" role="button"><i class="ti-eye"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
+                                                class="btn btn-primary" role="button"><i
+                                                    class="ti-shopping-cart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
+                                                class="btn btn-primary" role="button"><i class="ti-heart"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ $product->categories->name }}</p>
+                                    <h4 class="card-product__title">
+                                        <a href="single-product.html">{{ $product->name }}</a>
+                                    </h4>
+                                    <p class="card-product__price">${{ $product->price }} USD</p>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    @foreach ($products as $product)
+                        @if ($product->status == 'accepted')
+                            <div class="card text-center card-product">
+                                <div class="card-product__img">
+                                    <img class="img-fluid"
+                                        src="{{ asset('storage/image_product') }}/{{ $product->image }}"
+                                        alt="" />
+                                    <ul class="card-product__imgOverlay">
+                                        <li>
+                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
+                                                class="btn btn-primary" role="button"><i class="ti-eye"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
+                                                class="btn btn-primary" role="button"><i
+                                                    class="ti-shopping-cart"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
+                                                class="btn btn-primary" role="button"><i class="ti-heart"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ $product->categories->name }}</p>
+                                    <h4 class="card-product__title">
+                                        <a href="single-product.html">{{ $product->name }}</a>
+                                    </h4>
+                                    <p class="card-product__price">${{ $product->price }} USD</p>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </section>
-        <!-- ================ Best Selling item  carousel end ================= -->
+        {{-- ================ Best Selling item  carousel end ================= --}}
 
-        <!-- ================ Blog section start ================= -->
-        <section class="blog">
+        {{-- ================ Blog section start ================= --}}
+        <section id="blog" class="blog">
             <div class="container">
                 <div class="section-intro pb-60px">
-                    <p>Popular Item in the market</p>
-                    <h2>Latest <span class="section-intro__style">News</span></h2>
+                    <h2>Our <span class="section-intro__style">Team</span></h2>
                 </div>
 
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="card card-blog">
                             <div class="card-blog__img">
-                                <img class="card-img rounded-0" src="img/blog/blog1.png" alt="" />
+                                <img class="card-img rounded" src="{{ asset('admin/img/Kumparan.jpg') }}"
+                                    alt="" style="height: 23em" />
+
                             </div>
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <ul class="card-blog__info">
-                                    <li><a href="#">By Admin</a></li>
-                                    <li>
-                                        <a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a>
-                                    </li>
+                                    <li><a href="#">IT Development</a></li>
                                 </ul>
                                 <h4 class="card-blog__title">
-                                    <a href="single-blog.html">The Richland Center Shooping News and weekly shooper</a>
+                                    <a href="single-blog.html">Ade Dwi Putra</a>
                                 </h4>
                                 <p>
-                                    Let one fifth i bring fly to divided face for bearing divide
-                                    unto seed. Winged divided light Forth.
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                 </p>
-                                <a class="card-blog__link" href="#">Read More <i
-                                        class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -439,25 +258,20 @@
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="card card-blog">
                             <div class="card-blog__img">
-                                <img class="card-img rounded-0" src="img/blog/blog2.png" alt="" />
+                                <img class="card-img rounded" src="{{ asset('admin/img/profile-img.jpg') }}"
+                                    alt="" style="height: 23em" />
                             </div>
                             <div class="card-body">
                                 <ul class="card-blog__info">
-                                    <li><a href="#">By Admin</a></li>
-                                    <li>
-                                        <a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a>
-                                    </li>
+                                    <li><a href="#">IT Strategy & Planning</a></li>
+
                                 </ul>
                                 <h4 class="card-blog__title">
-                                    <a href="single-blog.html">The Shopping News also offers top-quality printing
-                                        services</a>
+                                    <a href="single-blog.html">Jhon Doe</a>
                                 </h4>
                                 <p>
-                                    Let one fifth i bring fly to divided face for bearing divide
-                                    unto seed. Winged divided light Forth.
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                 </p>
-                                <a class="card-blog__link" href="#">Read More <i
-                                        class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -465,68 +279,32 @@
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="card card-blog">
                             <div class="card-blog__img">
-                                <img class="card-img rounded-0" src="img/blog/blog3.png" alt="" />
+                                <img class="card-img rounded" src="{{ asset('admin/img/me_crop.jpg') }}"
+                                    alt="" style="height: 23em" />
                             </div>
                             <div class="card-body">
                                 <ul class="card-blog__info">
-                                    <li><a href="#">By Admin</a></li>
-                                    <li>
-                                        <a href="#"><i class="ti-comments-smiley"></i> 2 Comments</a>
-                                    </li>
+                                    <li><a href="#">Database Management</a></li>
+
                                 </ul>
                                 <h4 class="card-blog__title">
-                                    <a href="single-blog.html">Professional design staff and efficient equipment you’ll
-                                        find we offer</a>
+                                    <a href="single-blog.html">Andri Elistiawan</a>
                                 </h4>
                                 <p>
-                                    Let one fifth i bring fly to divided face for bearing divide
-                                    unto seed. Winged divided light Forth.
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                 </p>
-                                <a class="card-blog__link" href="#">Read More <i
-                                        class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- ================ Blog section end ================= -->
+        {{-- ================ Blog section end ================= --}}
 
-        <!-- ================ Subscribe section start ================= -->
-        <section class="subscribe-position">
-            <div class="container">
-                <div class="subscribe text-center">
-                    <h3 class="subscribe__title">Get Update From Anywhere</h3>
-                    <p>
-                        Bearing Void gathering light light his eavening unto dont afraid
-                    </p>
-                    <div id="mc_embed_signup">
-                        <form target="_blank"
-                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                            method="get" class="subscribe-form form-inline mt-5 pt-1">
-                            <div class="form-group ml-sm-auto">
-                                <input class="form-control mb-1" type="email" name="EMAIL"
-                                    placeholder="Enter your email" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Your Email Address '" />
-                                <div class="info"></div>
-                            </div>
-                            <button class="button button-subscribe mr-auto mb-1" type="submit">
-                                Subscribe Now
-                            </button>
-                            <div style="position: absolute; left: -5000px">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-                                    type="text" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ================ Subscribe section end ================= -->
 
     </main>
 
-    <!--================ Start footer Area  =================-->
+    {{-- ================ Start footer Area  ================= --}}
     <footer class="footer">
         <div class="footer-area">
             <div class="container">
@@ -535,13 +313,11 @@
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title large_title">Our Mission</h4>
                             <p>
-                                So seed seed green that winged cattle in. Gathering thing made
-                                fly you're no divided deep moved us lan Gathering thing us
-                                land years living.
+                                Selling original and cheap shoes so that it can be reached by many people including
+                                students.
                             </p>
                             <p>
-                                So seed seed green that winged cattle in. Gathering thing made
-                                fly you're no divided deep moved
+                                Shoes that are cool and comfortable to wear make you more confident
                             </p>
                         </div>
                     </div>
@@ -549,28 +325,18 @@
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Quick Links</h4>
                             <ul class="list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Shop</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Product</a></li>
-                                <li><a href="#">Brand</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#slider">Home</a>
+                                </li>
+                                <li><a href="#tranding">Popular</a>
+                                </li>
+                                <li><a href="#parallax-1">Discount</a>
+                                </li>
+                                <li><a href="#best-seller">Best Seller</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget instafeed">
-                            <h4 class="footer_title">Gallery</h4>
-                            <ul class="list instafeed d-flex flex-wrap">
-                                <li><img src="img/gallery/r1.jpg" alt="" /></li>
-                                <li><img src="img/gallery/r2.jpg" alt="" /></li>
-                                <li><img src="img/gallery/r3.jpg" alt="" /></li>
-                                <li><img src="img/gallery/r5.jpg" alt="" /></li>
-                                <li><img src="img/gallery/r7.jpg" alt="" /></li>
-                                <li><img src="img/gallery/r8.jpg" alt="" /></li>
-                            </ul>
-                        </div>
-                    </div>
+
                     <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Contact Us</h4>
@@ -579,15 +345,15 @@
                                     <span class="fa fa-location-arrow"></span>
                                     Head Office
                                 </p>
-                                <p>123, Main Street, Your City</p>
+                                <p>Curug, Gunung Sindur</p>
 
                                 <p class="sm-head">
                                     <span class="fa fa-phone"></span>
                                     Phone Number
                                 </p>
                                 <p>
-                                    +123 456 7890 <br />
-                                    +123 456 7890
+                                    085377805905 <br />
+
                                 </p>
 
                                 <p class="sm-head">
@@ -595,8 +361,8 @@
                                     Email
                                 </p>
                                 <p>
-                                    free@infoexample.com <br />
-                                    www.infoexample.com
+                                    adedwiputra16@gmail.com <br />
+                                    ig: adedwiputra02
                                 </p>
                             </div>
                         </div>
@@ -609,21 +375,17 @@
             <div class="container">
                 <div class="row d-flex">
                     <p class="col-lg-12 footer-text text-center">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved | This template is made with
-                        <i class="fa fa-heart" aria-hidden="true"></i> by
-                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Ade Dwi Putra
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-    <!--================ End footer Area  =================-->
+    {{-- ================ End footer Area  ================= --}}
 
     <script src="{{ asset('assets/vendors/jquery/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>

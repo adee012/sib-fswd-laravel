@@ -85,7 +85,7 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <img src="{{ asset('storage/avatar') }}/{{ $users->avatar }}" class="rounded"
+                                        <img src="{{ asset('storage/avatar') }}/{{ $users->avatar }}" class="rounded mb-1"
                                             style="height: 120px" alt="">
                                         <br>
                                         <input type="file" class="form-control" name="avatar" id="avatar"

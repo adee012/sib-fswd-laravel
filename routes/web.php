@@ -37,51 +37,53 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
-
     // User List
-    Route::get('/UsersList', [UsersController::class, 'index']);
-    Route::get('/addUser', [UsersController::class, 'create']);
-    Route::get('/detail-user', [UsersController::class, 'show']);
+    Route::get('/UsersList', [UsersController::class, 'index'])->middleware(['access']);
+    Route::get('/addUser', [UsersController::class, 'create'])->middleware(['access']);
+    Route::get('/detail-user', [UsersController::class, 'show'])->middleware(['access']);
     Route::post('/addUser', [UsersController::class, 'store'])->name('user-new');
-    Route::get('/users-edit/{id}', [UsersController::class, 'edit']);
-    Route::put('/user-edit', [UsersController::class, 'update']);
-    Route::get('/users-delete/{id}', [UsersController::class, 'destroy']);
+    Route::get('/users-edit/{id}', [UsersController::class, 'edit'])->middleware(['access']);
+    Route::put('/user-edit', [UsersController::class, 'update'])->middleware(['access']);
+    Route::get('/users-delete/{id}', [UsersController::class, 'destroy'])->middleware(['access']);
 
     // User Group
-    Route::get('/UserGroup', [UsersController::class, 'group']);
-    Route::get('/admin-group', [UsersController::class, 'role_admin']);
-    Route::get('/staff-group', [UsersController::class, 'role_staff']);
-    Route::get('/user-group', [UsersController::class, 'role_user']);
+    Route::get('/UserGroup', [UsersController::class, 'group'])->middleware(['access']);
+    Route::get('/admin-group', [UsersController::class, 'role_admin'])->middleware(['access']);
+    Route::get('/staff-group', [UsersController::class, 'role_staff'])->middleware(['access']);
+    Route::get('/user-group', [UsersController::class, 'role_user'])->middleware(['access']);
 
     // Products
-    Route::get('/ProductList', [ProductsController::class, 'index']);
-    Route::get('/addProduct', [ProductsController::class, 'create']);
-    Route::post('/addProduct', [ProductsController::class, 'store']);
-    Route::get('/product-edit/{id}', [ProductsController::class, 'edit']);
-    Route::put('/product-edit', [ProductsController::class, 'update']);
-    Route::get('/product-delete/{id}', [ProductsController::class, 'destroy']);
-    Route::get('/validation-product', [ProductsController::class, 'validation']);
-    Route::put('/products-rejected/{id}', [ProductsController::class, 'rejected']);
-    Route::put('/products-accepted/{id}', [ProductsController::class, 'accepted']);
+    Route::get('/ProductList', [ProductsController::class, 'index'])->middleware(['access']);
+
+    Route::get('/addProduct', [ProductsController::class, 'create'])->middleware(['access']);
+    Route::post('/addProduct', [ProductsController::class, 'store'])->middleware(['access']);
+    Route::get('/product-edit/{id}', [ProductsController::class, 'edit'])->middleware(['access']);
+    Route::put('/product-edit', [ProductsController::class, 'update'])->middleware(['access']);
+    Route::get('/product-delete/{id}', [ProductsController::class, 'destroy'])->middleware(['access']);
+    Route::get('/validation-product', [ProductsController::class, 'validation'])->middleware(['access']);
+    Route::put('/products-rejected/{id}', [ProductsController::class, 'rejected'])->middleware(['access']);
+    Route::put('/products-accepted/{id}', [ProductsController::class, 'accepted'])->middleware(['access']);
 
     // Categories
-    Route::get('/categories', [CategoriesController::class, 'index']);
-    Route::get('/addCategories', [CategoriesController::class, 'create']);
-    Route::post('/addCategories', [CategoriesController::class, 'store']);
-    Route::get('/categories-edit/{id}', [CategoriesController::class, 'edit']);
-    Route::put('/categories-edit', [CategoriesController::class, 'update']);
-    Route::get('/categories-delete/{id}', [CategoriesController::class, 'destroy'])->name('delete');
+    Route::get('/categories', [CategoriesController::class, 'index'])->middleware(['access']);
+    Route::get('/addCategories', [CategoriesController::class, 'create'])->middleware(['access']);
+    Route::post('/addCategories', [CategoriesController::class, 'store'])->middleware(['access']);
+    Route::get('/categories-edit/{id}', [CategoriesController::class, 'edit'])->middleware(['access']);
+    Route::put('/categories-edit', [CategoriesController::class, 'update'])->middleware(['access']);
+    Route::get('/categories-delete/{id}', [CategoriesController::class, 'destroy'])->name('delete')->middleware(['access']);
 
     // Carousels
-    Route::get('/carousels', [CarouselsController::class, 'index']);
-    Route::get('/addCarousels', [CarouselsController::class, 'create']);
-    Route::post('/addCarousels', [CarouselsController::class, 'store']);
-    Route::get('/carousels-accepted/{id}', [CarouselsController::class, 'edit']);
-    Route::put('/carousels-rejected/{id}', [CarouselsController::class, 'rejected']);
-    Route::put('/carousels-accepted/{id}', [CarouselsController::class, 'update']);
-    Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy']);
+    Route::get('/carousels', [CarouselsController::class, 'index'])->middleware(['access']);
+    Route::get('/addCarousels', [CarouselsController::class, 'create'])->middleware(['access']);
+    Route::post('/addCarousels', [CarouselsController::class, 'store'])->middleware(['access']);
+    Route::get('/carousels-accepted/{id}', [CarouselsController::class, 'edit'])->middleware(['access']);
+    Route::put('/carousels-rejected/{id}', [CarouselsController::class, 'rejected'])->middleware(['access']);
+    Route::put('/carousels-accepted/{id}', [CarouselsController::class, 'update'])->middleware(['access']);
+    Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy'])->middleware(['access']);
 });
 
+Route::get('/detail-product/{id}', [ProductsController::class, 'detail']);
+
 Route::get('/home', function () {
-    return back();
+    return redirect('dashboard');
 });

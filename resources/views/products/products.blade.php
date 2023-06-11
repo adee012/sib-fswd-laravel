@@ -68,8 +68,8 @@
                                                             {{-- button delete --}}
                                                             <a href="/product-delete/{{ $p->id }}"
                                                                 class=" btn btn-danger" role="button"
-                                                                data-confirm-delete="true"><i class="bi bi-trash-fill"
-                                                                    style="font-size:20px"></i></a>
+                                                                onclick="return confirm('Are you sure you want to delete the product ?')"><i
+                                                                    class="bi bi-trash-fill" style="font-size:20px"></i></a>
                                                         </td>
                                                         </td>
                                                     @endif
