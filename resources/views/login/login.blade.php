@@ -38,13 +38,12 @@
     <main>
         <div class="container">
 
-            <section
-                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <section class="section register d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                            <div class="card mb-3">
+                            <div class="card mt-5">
 
                                 <div class="card-body">
 
@@ -61,7 +60,8 @@
                                             <label for="yourUsername" class="form-label">Username</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <input type="email" name="email" class="form-control"
+                                                <input type="email" name="email"
+                                                    class="form-control @error('email') is-invalid) @enderror"
                                                     value="{{ old('email') }}" id="yourUsername" autofocus required>
                                                 <div class="invalid-feedback">Invalid email, must use @</div>
                                             </div>
@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="col-12">
                                             <p class="small mb-0">Don't have account? <a
-                                                    href="pages-register.html">Create an account</a></p>
+                                                    href="{{ url('/register') }}">Create an account</a></p>
                                         </div>
                                     </form>
 
@@ -110,10 +110,7 @@
             </section>
 
         </div>
-    </main><!-- End #main -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    </main>
 
     {{-- Vendor JS Files --}}
     <script src="{{ asset('admin/vendor/apexcharts/apexcharts.min.js') }}"></script>

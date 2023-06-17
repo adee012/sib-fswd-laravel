@@ -14,6 +14,10 @@
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                             <div class="overflow-hidden rounded-circle" style="width: 120px; height:120px">
+                                @if (Auth::user()->avatar == null)
+                                    <img src="{{ asset('admin/img/default.jpg') }}" class="img-circle" alt="Profile"
+                                        style="width:100%; height:auto">
+                                @endif
                                 <img src="{{ asset('storage/avatar') }}/{{ Auth::user()->avatar }}" class="img-circle"
                                     alt="Profile" style="width:100%; height:auto">
                             </div>
@@ -84,18 +88,33 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form>
+                                    <form action="{{ url('/update-detail') }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @method('put')
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
                                                 Image</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="{{ asset('storage/avatar') }}/{{ Auth::user()->avatar }}"
-                                                    alt="Profile">
+                                                @if (Auth::user()->avatar == null)
+                                                    <img src="{{ asset('admin/img/default.jpg') }}" alt="Profile"
+                                                        class="rounded" style=" height:150; width:200px" id="images">
+                                                    <img src="" id="image" alt="Profile" class="rounded"
+                                                        style="display: none; height:150; width:200px">
+                                                @elseif (Auth::user()->avatar != null)
+                                                    <img src="{{ asset('storage/avatar') }}/{{ Auth::user()->avatar }}"
+                                                        alt="Profile" id="images" class="rounded"
+                                                        style=" height:150; width:200px">
+                                                    <img src="" id="image" alt="Profile" class="rounded"
+                                                        style="display: none; height:150; width:200px">
+                                                @endif
+
                                                 <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                                    <label for="choose" class="btn btn-primary"><i class="bi bi-upload"
+                                                            style="color:white;"></i></label>
+                                                    <input name="avatar" onchange="showPreview(event);" type="file"
+                                                        class="d-none" id="choose">
                                                 </div>
                                             </div>
                                         </div>
@@ -103,16 +122,16 @@
                                         <div class="row mb-3">
                                             <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="fullName" type="text" class="form-control" id="fullName"
+                                                <input name="name" type="text" class="form-control" id="fullName"
                                                     value="{{ Auth::user()->name }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Address" class="col-md-4 col-lg-3 col-form-label">Role</label>
+                                            <label for="role" class="col-md-4 col-lg-3 col-form-label">Role</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="address" type="text" class="form-control" id="Address"
-                                                    value="{{ Auth::user()->role }}" disabled selected>
+                                                <input name="role" type="text" class="form-control" id="role"
+                                                    value="{{ Auth::user()->role }}" disabled>
                                             </div>
                                         </div>
 
@@ -201,4 +220,18 @@
 
 
     @include('sweetalert::alert')
+@endsection
+@section('script')
+    <script>
+        function showPreview(event) {
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("image");
+                var previews = document.getElementById("images");
+                preview.src = src;
+                preview.style.display = "block";
+                previews.style.display = "none";
+            }
+        }
+    </script>
 @endsection

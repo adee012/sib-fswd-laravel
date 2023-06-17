@@ -2,399 +2,866 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Adpers Store</title>
-    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendors/themify-icons/themify-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendors/nice-select/nice-select.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/owl.theme.default.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/owl.carousel.min.css') }}" />
-
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{--  ====================================================================== --}}
+    <link rel="icon" type="image/png" href="{{ asset('admin/img/adpers.png') }}" />
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/linearicons-v1.0.0/icon-font.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/animate/animate.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/css-hamburgers/hamburgers.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/animsition/css/animsition.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/select2/select2.min.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/slick/slick.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/MagnificPopup/magnific-popup.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+    {{--  ====================================================================== --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+    {{--  ====================================================================== --}}
 </head>
 
-<body>
-    {{-- ================ Start Header Menu Area ================= --}}
-    <header class="header_area">
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container">
-                    <a class="navbar-brand logo_h" href="index.html">
-                        <h3>Adpers <span class="text-primary">Store</span></h3>
+<body class="animsition">
+
+    {{-- Header --}}
+    <header>
+        {{-- Header desktop --}}
+        <div class="container-menu-desktop">
+            {{-- Topbar --}}
+            <div class="wrap-menu-desktop" style="top: 0">
+                <nav class="limiter-menu-desktop container">
+                    {{-- Logo desktop --}}
+                    <a href="#" class="logo">
+                        <img src="{{ asset('admin/img/logo.png') }}" alt="IMG-LOGO">
                     </a>
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#slider">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#tranding">Popular</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#parallax-1">Discount</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#best-seller">Best Seller</a>
-                            </li>
-                        </ul>
 
-                        <ul class="nav-shop">
+                    {{-- Menu desktop --}}
+                    <div class="menu-desktop">
+                        <ul class="main-menu">
+                            <li class="active-menu">
+                                <a href="index.html">Home</a>
+                            </li>
 
-                            <li class="nav-item">
-                                <a class="button button-header" href="{{ url('/login') }}">Login</a>
+                            <li>
+                                <a href="product.html">Shop</a>
+                            </li>
+
+                            <li>
+                                <a href="shoping-cart.html">Features</a>
+                            </li>
+
+                            <li>
+                                <a href="blog.html">Blog</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About</a>
+                            </li>
+
+                            <li>
+                                <a href="contact.html">Contact</a>
                             </li>
                         </ul>
                     </div>
-                </div>
-            </nav>
+
+                    {{-- Icon header --}}
+                    <div class="wrap-icon-header flex-w flex-r-m ">
+                        <a href="{{ url('/login') }}" class="hover-shadow border border-primary py-2 px-4"
+                            style="border-radius: 30px" role="button">
+                            <h6 style="letter-spacing: 1px">Login</h6>
+                        </a>
+                    </div>
+                </nav>
+            </div>
         </div>
+
+        {{-- Header Mobile --}}
+        <div class="wrap-header-mobile">
+            {{-- Logo moblie --}}
+            <div class="logo-mobile">
+                <img src="{{ asset('admin/img/logo.png') }}" alt="IMG-LOGO">
+            </div>
+
+            {{-- Button show menu --}}
+            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </div>
+        </div>
+
+
+        {{-- Menu Mobile --}}
+        <div class="menu-mobile">
+            <ul class="main-menu-m">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="product.html">Shop</a>
+                </li>
+
+                <li>
+                    <a href="shoping-cart.html">Features</a>
+                </li>
+
+                <li>
+                    <a href="{{ url('/login') }}">Login</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+
     </header>
-    {{-- ================ End Header Menu Area ================= --}}
 
-    <main class="site-main">
-        {{-- ================ Hero banner start ================= --}}
-        <section id="slider" class="hero-banner">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach ($Carousels as $key => $banner)
-                        @if ($banner->is_active == 1)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img class="d-block w-100" style="max-height: 720px"
-                                    src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}"
-                                    alt="First slide" />
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+    {{-- Slider --}}
+    <section class="section-slide">
+        <div class="wrap-slick1">
+            <div class="slick1">
+                @foreach ($Carousels as $key => $banner)
+                    @if ($banner->is_active == 1)
+                        <div class="item-slick1 {{ $key == 0 ? 'active' : '' }}">
+                            <img src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}"
+                                style="width: 100%; height:100%" alt="">
+                        </div>
+                    @endif
+                @endforeach
             </div>
-        </section>
-        {{-- ================ Hero banner start ================= --}}
+        </div>
+    </section>
 
-        {{-- ================ trending product section start ================= --}}
-        <section id="tranding" class="section-margin calc-60px">
-            <div class="container">
-                <div class="section-intro pb-60px">
-                    <p>Popular Item in the market</p>
-                    <h2>Trending <span class="section-intro__style">Product</span></h2>
-                </div>
-                <div class="row">
-                    @foreach ($products as $key => $value)
-                        @if ($value->status == 'accepted')
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img"
-                                            src="{{ asset('storage/image_product') }}/{{ $value->image }}"
-                                            alt="" />
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <a href="{{ url('/detail-product') }}/{{ $value->id }}"
-                                                    class="btn btn-primary" role="button"><i class="ti-eye"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('/detail-product') }}/{{ $value->id }}"
-                                                    class="btn btn-primary" role="button"><i
-                                                        class="ti-shopping-cart"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ url('/detail-product') }}/{{ $value->id }}"
-                                                    class="btn btn-primary" role="button"><i class="ti-heart"></i></a>
-                                            </li>
-                                        </ul>
+
+    {{-- Banner --}}
+    {{-- <div class="sec-banner bg0 p-t-80 p-b-50">
+        <div class="container">
+            <div class="row">
+                @foreach ($products as $product)
+                    @if ($product->status == 'accepted')
+                        <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                            
+                            <div class="block1 wrap-pic-w">
+                                <img src="images/banner-01.jpg" alt="IMG-BANNER">
+
+                                <a href="product.html"
+                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                                    <div class="block1-txt-child1 flex-col-l">
+                                        <span class="block1-name ltext-102 trans-04 p-b-8">
+                                            {{ $product->name }}
+                                        </span>
+
+                                        <span class="block1-info stext-102 trans-04">
+                                            {{ $product->price }}
+                                        </span>
                                     </div>
-                                    <div class="card-body">
-                                        <p>{{ $value->Categories->name }}</p>
-                                        <h4 class="card-product__title">
-                                            <a href="single-product.html">{{ $value->name }}</a>
-                                        </h4>
-                                        <p class="card-product__price">${{ $value->price }} USD</p>
+
+                                    <div class="block1-txt-child2 p-b-4 trans-05">
+                                        <div class="block1-link stext-101 cl0 trans-09">
+                                            Shop Now
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        @endif
+                        </div>
+                    @endif
+                @endforeach
+
+            </div>
+        </div>
+    </div> --}}
+
+
+    {{-- Product --}}
+    <section class="bg0 p-t-23 p-b-140">
+        <div class="container">
+            <div class="p-b-10">
+                <h3 class="ltext-103 cl5">
+                    Product Overview
+                </h3>
+            </div>
+
+            <div class="flex-w flex-sb-m p-b-52">
+                <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                        All Products
+                    </button>
+
+                    @foreach ($produk as $product)
+                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                            data-filter=".filter-{{ $product->categories->name }}">
+                            {{ $product->categories->name }}
+                        </button>
                     @endforeach
                 </div>
-            </div>
-        </section>
-        {{-- ================ trending product section end ================= --}}
 
-        {{-- ================ offer section start ================= --}}
-        <section class="offer" id="parallax-1" data-anchor-target="#parallax-1"
-            data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5">
-                        <div class="offer__content text-center">
-                            <h3>Up To 50% Off</h3>
-                            <h4>Discount 6.6</h4>
-                            <p>Quality and original shoes</p>
-                            <a class="button button--active mt-3 mt-xl-4" href="{{ url('/login') }}">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{-- ================ offer section end ================= --}}
-
-        {{-- ================ Best Selling item  carousel ================= --}}
-        <section id="best-seller" class="section-margin calc-60px">
-            <div class="container">
-                <div class="section-intro pb-60px">
-                    <p>Popular Item in the market</p>
-                    <h2>Best <span class="section-intro__style">Sellers</span></h2>
-                </div>
-                <div class="owl-carousel owl-theme" id="bestSellerCarousel">
-                    @foreach ($products as $product)
-                        @if ($product->status == 'accepted')
-                            <div class="card text-center card-product">
-                                <div class="card-product__img">
-                                    <img class="img-fluid"
-                                        src="{{ asset('storage/image_product') }}/{{ $product->image }}"
-                                        alt="" />
-                                    <ul class="card-product__imgOverlay">
-                                        <li>
-                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
-                                                class="btn btn-primary" role="button"><i class="ti-eye"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
-                                                class="btn btn-primary" role="button"><i
-                                                    class="ti-shopping-cart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
-                                                class="btn btn-primary" role="button"><i class="ti-heart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body">
-                                    <p>{{ $product->categories->name }}</p>
-                                    <h4 class="card-product__title">
-                                        <a href="single-product.html">{{ $product->name }}</a>
-                                    </h4>
-                                    <p class="card-product__price">${{ $product->price }} USD</p>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                    @foreach ($products as $product)
-                        @if ($product->status == 'accepted')
-                            <div class="card text-center card-product">
-                                <div class="card-product__img">
-                                    <img class="img-fluid"
-                                        src="{{ asset('storage/image_product') }}/{{ $product->image }}"
-                                        alt="" />
-                                    <ul class="card-product__imgOverlay">
-                                        <li>
-                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
-                                                class="btn btn-primary" role="button"><i class="ti-eye"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
-                                                class="btn btn-primary" role="button"><i
-                                                    class="ti-shopping-cart"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/detail-product') }}/{{ $product->id }}"
-                                                class="btn btn-primary" role="button"><i class="ti-heart"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body">
-                                    <p>{{ $product->categories->name }}</p>
-                                    <h4 class="card-product__title">
-                                        <a href="single-product.html">{{ $product->name }}</a>
-                                    </h4>
-                                    <p class="card-product__price">${{ $product->price }} USD</p>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        {{-- ================ Best Selling item  carousel end ================= --}}
-
-        {{-- ================ Blog section start ================= --}}
-        <section id="blog" class="blog">
-            <div class="container">
-                <div class="section-intro pb-60px">
-                    <h2>Our <span class="section-intro__style">Team</span></h2>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="card card-blog">
-                            <div class="card-blog__img">
-                                <img class="card-img rounded" src="{{ asset('admin/img/Kumparan.jpg') }}"
-                                    alt="" style="height: 23em" />
-
-                            </div>
-                            <div class="card-body text-center">
-                                <ul class="card-blog__info">
-                                    <li><a href="#">IT Development</a></li>
-                                </ul>
-                                <h4 class="card-blog__title">
-                                    <a href="single-blog.html">Ade Dwi Putra</a>
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
+                <div class="flex-w flex-c-m m-tb-10">
+                    <div
+                        class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+                        <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+                        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+                        Filter
                     </div>
 
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="card card-blog">
-                            <div class="card-blog__img">
-                                <img class="card-img rounded" src="{{ asset('admin/img/profile-img.jpg') }}"
-                                    alt="" style="height: 23em" />
-                            </div>
-                            <div class="card-body">
-                                <ul class="card-blog__info">
-                                    <li><a href="#">IT Strategy & Planning</a></li>
-
-                                </ul>
-                                <h4 class="card-blog__title">
-                                    <a href="single-blog.html">Jhon Doe</a>
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="card card-blog">
-                            <div class="card-blog__img">
-                                <img class="card-img rounded" src="{{ asset('admin/img/me_crop.jpg') }}"
-                                    alt="" style="height: 23em" />
-                            </div>
-                            <div class="card-body">
-                                <ul class="card-blog__info">
-                                    <li><a href="#">Database Management</a></li>
-
-                                </ul>
-                                <h4 class="card-blog__title">
-                                    <a href="single-blog.html">Andri Elistiawan</a>
-                                </h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
+                    <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+                        <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
+                        <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+                        Search
                     </div>
                 </div>
-            </div>
-        </section>
-        {{-- ================ Blog section end ================= --}}
 
+                {{-- Search product --}}
+                <div class="dis-none panel-search w-full p-t-10 p-b-15">
+                    <div class="bor8 dis-flex p-l-15">
+                        <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
 
-    </main>
-
-    {{-- ================ Start footer Area  ================= --}}
-    <footer class="footer">
-        <div class="footer-area">
-            <div class="container">
-                <div class="row section_gap">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget tp_widgets">
-                            <h4 class="footer_title large_title">Our Mission</h4>
-                            <p>
-                                Selling original and cheap shoes so that it can be reached by many people including
-                                students.
-                            </p>
-                            <p>
-                                Shoes that are cool and comfortable to wear make you more confident
-                            </p>
-                        </div>
+                        <input id="filter-search" class="mtext-107 cl2 size-114 plh2 p-r-15" type="text"
+                            name="search-product" placeholder="Search">
                     </div>
-                    <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget tp_widgets">
-                            <h4 class="footer_title">Quick Links</h4>
-                            <ul class="list">
-                                <li><a href="#slider">Home</a>
+                </div>
+
+                {{-- Filter --}}
+                <div class="dis-none panel-filter w-full p-t-10">
+                    <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Sort By
+                            </div>
+
+                            <ul>
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Default
+                                    </a>
                                 </li>
-                                <li><a href="#tranding">Popular</a>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Popularity
+                                    </a>
                                 </li>
-                                <li><a href="#parallax-1">Discount</a>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Average rating
+                                    </a>
                                 </li>
-                                <li><a href="#best-seller">Best Seller</a>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
+                                        Newness
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Price: Low to High
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Price: High to Low
+                                    </a>
                                 </li>
                             </ul>
                         </div>
-                    </div>
 
-                    <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget tp_widgets">
-                            <h4 class="footer_title">Contact Us</h4>
-                            <div class="ml-40">
-                                <p class="sm-head">
-                                    <span class="fa fa-location-arrow"></span>
-                                    Head Office
-                                </p>
-                                <p>Curug, Gunung Sindur</p>
+                        <div class="filter-col2 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Price
+                            </div>
 
-                                <p class="sm-head">
-                                    <span class="fa fa-phone"></span>
-                                    Phone Number
-                                </p>
-                                <p>
-                                    085377805905 <br />
+                            <ul>
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
+                                        All
+                                    </a>
+                                </li>
 
-                                </p>
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        $0.00 - $50.00
+                                    </a>
+                                </li>
 
-                                <p class="sm-head">
-                                    <span class="fa fa-envelope"></span>
-                                    Email
-                                </p>
-                                <p>
-                                    adedwiputra16@gmail.com <br />
-                                    ig: adedwiputra02
-                                </p>
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        $50.00 - $100.00
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        $100.00 - $150.00
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        $150.00 - $200.00
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        $200.00+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="filter-col3 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Color
+                            </div>
+
+                            <ul>
+                                <li class="p-b-6">
+                                    <span class="fs-15 lh-12 m-r-6" style="color: #222;">
+                                        <i class="zmdi zmdi-circle"></i>
+                                    </span>
+
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Black
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <span class="fs-15 lh-12 m-r-6" style="color: #4272d7;">
+                                        <i class="zmdi zmdi-circle"></i>
+                                    </span>
+
+                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
+                                        Blue
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <span class="fs-15 lh-12 m-r-6" style="color: #b3b3b3;">
+                                        <i class="zmdi zmdi-circle"></i>
+                                    </span>
+
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Grey
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <span class="fs-15 lh-12 m-r-6" style="color: #00ad5f;">
+                                        <i class="zmdi zmdi-circle"></i>
+                                    </span>
+
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Green
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <span class="fs-15 lh-12 m-r-6" style="color: #fa4251;">
+                                        <i class="zmdi zmdi-circle"></i>
+                                    </span>
+
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        Red
+                                    </a>
+                                </li>
+
+                                <li class="p-b-6">
+                                    <span class="fs-15 lh-12 m-r-6" style="color: #aaa;">
+                                        <i class="zmdi zmdi-circle-o"></i>
+                                    </span>
+
+                                    <a href="#" class="filter-link stext-106 trans-04">
+                                        White
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="filter-col4 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Tags
+                            </div>
+
+                            <div class="flex-w p-t-4 m-r--5">
+                                <a href="#"
+                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    Fashion
+                                </a>
+
+                                <a href="#"
+                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    Lifestyle
+                                </a>
+
+                                <a href="#"
+                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    Denim
+                                </a>
+
+                                <a href="#"
+                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    Streetstyle
+                                </a>
+
+                                <a href="#"
+                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    Crafts
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row d-flex">
-                    <p class="col-lg-12 footer-text text-center">
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
-                        Ade Dwi Putra
-                    </p>
+            <div class="row isotope-grid">
+                @foreach ($products as $product)
+                    @if ($product->status == 'accepted')
+                        <div
+                            class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item filter-{{ $product->categories->name }}">
+                            {{-- Block2 --}}
+                            <div class="block2" id="#product-acc">
+                                <div class="block2-pic hov-img0 .filter-card">
+                                    <img src="{{ asset('storage/image_product') }}/{{ $product->image }}"
+                                        alt="IMG-PRODUCT">
+
+                                    <button
+                                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 "
+                                        id="{{ $product->id }}">
+                                        Quick View
+                                    </button>
+                                </div>
+                                {{-- Modal1 --}}
+                                <div class="wrap-modal1 js-modal1  p-t-60 p-b-20" id="{{ $product->id }}">
+                                    <div class="overlay-modal1 js-hide-modal1"></div>
+
+                                    <div class="container">
+                                        <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+                                            <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                                                <img src="{{ asset('assets/images/icons/icon-close.png') }}"
+                                                    alt="CLOSE">
+                                            </button>
+
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-7 p-b-30">
+                                                    <div class="p-l-25 p-r-30 p-lr-0-lg">
+                                                        <div class="wrap-slick3 flex-sb flex-w">
+
+                                                            <div class="slick3 gallery-lb">
+                                                                <div class="item-slick3"
+                                                                    data-thumb="{{ asset('assets/images/product-detail-01.jpg') }}">
+                                                                    <div class="wrap-pic-w pos-relative">
+                                                                        <img src="{{ asset('assets/images/product-detail-01.jpg') }}"
+                                                                            alt="IMG-PRODUCT">
+
+                                                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+                                                                            href="{{ asset('assets/images/product-detail-01.jpg') }}">
+                                                                            <i class="fa fa-expand"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 col-lg-5 p-b-30 mt-5">
+                                                    <div class="p-r-50 p-t-5 p-lr-0-lg">
+                                                        <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                                                            {{ $product->name }}
+                                                        </h4>
+
+                                                        <span class="mtext-106 cl2">
+                                                            $58.79
+                                                        </span>
+
+                                                        <p class="stext-102 cl3 p-t-23">
+                                                            Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus
+                                                            ligula. Mauris consequat
+                                                            ornare feugiat.
+                                                        </p>
+
+                                                        {{--  --}}
+                                                        <div class="p-t-33">
+
+                                                            <div class="flex-w flex-r-m p-b-10">
+                                                                <div class="size-203 flex-c-m respon6">
+                                                                    Size
+                                                                </div>
+
+                                                                <div class="size-204 respon6-next">
+                                                                    <div class="rs1-select2 bor8 bg0">
+                                                                        <select class="js-select2" name="time">
+                                                                            <option>Choose an option</option>
+                                                                            <option>39</option>
+                                                                            <option>40</option>
+                                                                            <option>41</option>
+                                                                            <option>42</option>
+                                                                        </select>
+                                                                        <div class="dropDownSelect2"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="flex-w flex-r-m p-b-10">
+                                                                <div class="size-204 flex-w flex-m respon6-next">
+                                                                    <div
+                                                                        class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                                                        <div
+                                                                            class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                                            <i class="fs-16 zmdi zmdi-minus"></i>
+                                                                        </div>
+
+                                                                        <input
+                                                                            class="mtext-104 cl3 txt-center num-product"
+                                                                            type="number" name="num-product"
+                                                                            value="1">
+
+                                                                        <div
+                                                                            class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                                            <i class="fs-16 zmdi zmdi-plus"></i>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <button
+                                                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                                                        Add to cart
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        {{--  --}}
+                                                        <div class="flex-w flex-m p-l-100 p-t-40 respon7">
+                                                            <div class="flex-m bor9 p-r-10 m-r-11">
+                                                                <a href="#"
+                                                                    class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
+                                                                    data-tooltip="Add to Wishlist">
+                                                                    <i class="zmdi zmdi-favorite"></i>
+                                                                </a>
+                                                            </div>
+
+                                                            <a href="#"
+                                                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+                                                                data-tooltip="Facebook">
+                                                                <i class="fa fa-facebook"></i>
+                                                            </a>
+
+                                                            <a href="#"
+                                                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+                                                                data-tooltip="Twitter">
+                                                                <i class="fa fa-twitter"></i>
+                                                            </a>
+
+                                                            <a href="#"
+                                                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
+                                                                data-tooltip="Google Plus">
+                                                                <i class="fa fa-google-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <a href="product-detail.html"
+                                            class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                            {{ $product->name }}
+                                        </a>
+
+                                        <span class="stext-105 cl3">
+                                            ${{ $product->price }}
+                                        </span>
+                                    </div>
+
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                            <i class="fa fa-search" style="font-size: 20px; color:grey"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+
+            {{-- Load more --}}
+            <div class="flex-c-m flex-w w-full p-t-45">
+                <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                    Load More
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    {{-- Footer --}}
+    <footer class="bg3 p-t-75 p-b-32">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Categories
+                    </h4>
+
+                    <ul>
+                        @foreach ($produk as $product)
+                            <li class="p-b-10">
+                                <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                    {{ $product->categories->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Help
+                    </h4>
+
+                    <ul>
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Track Order
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                Shipping
+                            </a>
+                        </li>
+
+                        <li class="p-b-10">
+                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+                                FAQs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        GET IN TOUCH
+                    </h4>
+
+                    <p class="stext-107 cl7 size-201">
+                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us
+                        on (+1) 96 716 6879
+                    </p>
+
+                    <div class="p-t-27">
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-github"></i>
+                        </a>
+
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">
+                        Newsletter
+                    </h4>
+
+                    <form>
+                        <div class="wrap-input1 w-full p-b-4">
+                            <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
+                                placeholder="email@example.com">
+                            <div class="focus-input1 trans-04"></div>
+                        </div>
+
+                        <div class="p-t-18">
+                            <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="p-t-40">
+                <p class="stext-107 cl6 txt-center">
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> | Made with Ade Dwi Putra
+                </p>
             </div>
         </div>
     </footer>
-    {{-- ================ End footer Area  ================= --}}
 
-    <script src="{{ asset('assets/vendors/jquery/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/skrollr.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/nice-select/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/mail-script.js') }}"></script>
+
+    {{-- Back to top --}}
+    <div class="btn-back-to-top" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+
+
+    {{-- SCRIPT & LIBRARY JS --}}
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/animsition/js/animsition.min.js') }}"></script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/select2/select2.min.js') }}"></script>
+    <script>
+        $(".js-select2").each(function() {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+    </script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/js/slick-custom.js') }}"></script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/parallax100/parallax100.js') }}"></script>
+    <script>
+        $('.parallax100').parallax100();
+    </script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/MagnificPopup/jquery.magnific-popup.min.js') }}"></script>
+    <script>
+        $('.gallery-lb').each(function() { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                mainClass: 'mfp-fade'
+            });
+        });
+    </script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/isotope/isotope.pkgd.min.js') }}"></script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
+    <script>
+        $('.js-addwish-b2').on('click', function(e) {
+            e.preventDefault();
+        });
+
+        $('.js-addwish-b2').each(function() {
+            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-b2');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-addwish-detail').each(function() {
+            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-detail');
+                $(this).off('click');
+            });
+        });
+
+        /*---------------------------------------------*/
+
+        $('.js-addcart-detail').each(function() {
+            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+            $(this).on('click', function() {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+    </script>
+    {{--  ====================================================================== --}}
+    <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script>
+        $('.js-pscroll').each(function() {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function() {
+                ps.update();
+            })
+        });
+    </script>
+    {{--  ====================================================================== --}}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#filter-search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#product-acc .filter-card").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    {{--  ====================================================================== --}}
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
 </body>
 
 </html>

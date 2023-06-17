@@ -28,9 +28,12 @@ Route::middleware(['guest'])->group(function () {
     // Login
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::get('/register', [UsersController::class, 'showRegist']);
+    Route::post('/register', [UsersController::class, 'register']);
 });
 
 
+Route::get('/dashboard1', [DashboardController::class, 'index2']);
 // Untuk mengakses halaman admin/dashboard maka harus login terlebih dahulu
 Route::middleware(['auth'])->group(function () {
 
@@ -40,7 +43,8 @@ Route::middleware(['auth'])->group(function () {
     // User List
     Route::get('/UsersList', [UsersController::class, 'index'])->middleware(['access']);
     Route::get('/addUser', [UsersController::class, 'create'])->middleware(['access']);
-    Route::get('/detail-user', [UsersController::class, 'show'])->middleware(['access']);
+    Route::get('/detail-user', [UsersController::class, 'show']);
+    Route::put('/update-detail', [UsersController::class, 'updateDetail']);
     Route::post('/addUser', [UsersController::class, 'store'])->name('user-new');
     Route::get('/users-edit/{id}', [UsersController::class, 'edit'])->middleware(['access']);
     Route::put('/user-edit', [UsersController::class, 'update'])->middleware(['access']);

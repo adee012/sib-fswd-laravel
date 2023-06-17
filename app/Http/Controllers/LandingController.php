@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carousels;
+use App\Models\categories;
 use App\Models\products;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class LandingController extends Controller
     public function index()
     {
         $Carousels = Carousels::all();
+        $categories = categories::all();
+        $produk = Products::select('category_id')->groupby('category_id')->get();
         $products = products::with(['categories'])->get();
-        return view('index', compact('Carousels', 'products'));
+        return view('index', compact('Carousels', 'products', 'categories', 'produk'));
     }
 
     /**

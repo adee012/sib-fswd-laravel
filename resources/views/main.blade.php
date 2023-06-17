@@ -9,9 +9,8 @@
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
-    <!-- Favicons -->
-    <link href="{{ asset('admin/img/favicon.png') }}" rel="icon" />
-    <link href="{{ asset('admin/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
+    <!-- Icon -->
+    <link href="{{ asset('admin/img/adpers.png') }}" rel="icon" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect" />
@@ -20,7 +19,7 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+    {{-- Bootstrap 5 --}}
     <!-- Vendor CSS Files -->
     <link href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('admin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" />
@@ -32,6 +31,8 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet" />
+
+
 </head>
 
 <body>
@@ -52,12 +53,15 @@
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
                         <div class="overflow-hidden rounded-circle" style="width: 36px; height:36px">
+                            @if (Auth::user()->avatar == null)
+                                <img src="{{ asset('admin/img/default.jpg') }}" alt="Profile"
+                                    style="width:100%; height:auto" />
+                            @endif
                             <img src="{{ asset('storage/avatar') }}/{{ Auth::user()->avatar }}" alt="Profile"
                                 style="width:100%; height:auto" />
                         </div>
                         <span class="d-none d-md-block dropdown-toggle ps-2">
                             {{ Auth::user()->name }}
-
                         </span>
                     </a>
                     <!-- End Profile Iamge Icon -->
@@ -203,6 +207,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
+    {{-- Bootstrap 5 --}}
     {{-- Vendor JS Files --}}
     <script src="{{ asset('admin/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -218,9 +223,11 @@
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-
     @yield('script')
+
+
+
+</body>
 </body>
 
 </html>

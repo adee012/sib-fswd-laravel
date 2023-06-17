@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Http\Request::avatar;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -192,5 +193,97 @@ class UsersController extends Controller
         $users->delete();
 
         return back()->with('toast_success', 'Data berhasil dihapus!!');
+    }
+
+    // Regist User
+    public function showRegist()
+    {
+        return view('login.register');
+    }
+    public function register(Request $request)
+    {
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => ['required', 'string'],
+                'address' => 'required',
+                'password' => 'required|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+                'email' => 'required|email|unique:users',
+                'phone' => 'required|min:10|max:13',
+            ],
+            [
+                'password.regex' => 'Minimum 6 characters, consisting of uppercase, lowercase, numbers and symbols',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        users::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => 'user',
+            'phone' => $request->phone,
+            'addres' => $request->address,
+            'password' =>  Hash::make($request->password)
+        ]);
+
+        return redirect('/login')->with('success', 'Registrasi berhasil, silahkan login!!');
+        // dd($request->all());
+    }
+
+    public function updateDetail(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'avatar' => 'image|mimes:png,jpg,jpeg|max:2048',
+                'name' => ['required', 'string'],
+                'address' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|numeric|min:10',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $users = users::where('id', $request->id)->first();
+        // dd($users);
+
+        if ($request->hasFile('avatar')) {
+
+            // Menghapus file lama dari storage
+            $delete = Storage::delete('public/avatar/' . $users->avatar);
+
+
+            // upload file dengan nama file yang ditentukan
+            $name = $request->file('avatar');
+            $fileName = 'user_' . time() . '.' . $name->getClientOriginalExtension();
+            $path = Storage::putFileAs('public/avatar', $request->file('avatar'), $fileName);
+
+
+            // Update file di database
+            $users->update([
+                'avatar' => $fileName,
+            ]);
+        }
+
+        $users->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'addres' => $request->address
+        ]);
+        // dd($users);
+
+        return redirect('/detail-user')->with('toast_success', 'Data berhasil diupdate!!');
     }
 }

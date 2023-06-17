@@ -86,9 +86,15 @@
                                     </div>
 
                                     <div class="form-group mb-3">
+                                        <div class="preview">
+                                            <img src="" id="image" alt="" class="rounded"
+                                                style="display: none; height:100px; width:100px">
+                                        </div>
+
                                         <label for="avatar">Add Avatar</label>
                                         <input type="file" class="form-control @error('avatar') is-invalid @enderror"
-                                            name="avatar" id="avatar" accept="images/*" />
+                                            onchange="showPreview(event);" name="avatar" id="avatar"
+                                            accept="images/*" />
                                         @error('avatar')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -113,4 +119,16 @@
             class="bi bi-arrow-up-short"></i></a>
 
     @include('sweetalert::alert')
+@endsection
+@section('script')
+    <script>
+        function showPreview(event) {
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("image");
+                preview.src = src;
+                preview.style.display = "block";
+            }
+        }
+    </script>
 @endsection

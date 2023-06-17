@@ -31,7 +31,7 @@
                                         <div class="card-body">
                                             <h3 class="card-title">{{ $product->name }}</h3>
                                             @if ($product->status == 'waiting')
-                                                <p class="card-text fw-bold text-warning"> Waiting </p>
+                                                <p class="card-text fw-bold text-dark btn btn-warning"> Waiting </p>
                                             @elseif ($product->status == 'accepted')
                                                 <p class="card-text fw-bold text-success"> Accepted </p>
                                             @elseif ($product->status == 'rejected')
