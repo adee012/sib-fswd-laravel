@@ -196,24 +196,26 @@ class UsersController extends Controller
     }
 
     // Regist User
-    public function showRegist()
+
+    public function formRegist()
     {
         return view('login.register');
     }
+
     public function register(Request $request)
     {
 
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => ['required', 'string'],
-                'address' => 'required',
-                'password' => 'required|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+                'name' => 'required|string',
+                'password' => 'required|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|min:10|max:13',
             ],
             [
                 'password.regex' => 'Minimum 6 characters, consisting of uppercase, lowercase, numbers and symbols',
+                'password.confirmed' => 'Password tidak sama'
             ]
         );
 
@@ -228,13 +230,46 @@ class UsersController extends Controller
             'email' => $request->email,
             'role' => 'user',
             'phone' => $request->phone,
-            'addres' => $request->address,
             'password' =>  Hash::make($request->password)
         ]);
 
-        return redirect('/login')->with('success', 'Registrasi berhasil, silahkan login!!');
+        return redirect('/login')->with('success', 'Registration is successful, please login!!');
         // dd($request->all());
     }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate(
+            [
+                'old_password' => 'required',
+                'new_password' => 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/|required_with:password_confirmation|same:password_confirmation',
+                'password_confirmation' => 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'
+            ],
+            [
+                'new_password.regex' => 'Minimum 6 characters, consisting of uppercase, lowercase, numbers and symbols',
+                'password_confirmation.regex' => 'Minimum 6 characters, consisting of uppercase, lowercase, numbers and symbols'
+            ]
+        );
+        if (Hash::check($request->old_password, auth()->user()->password)) {
+            if (!Hash::check($request->new_password, auth()->user()->password)) {
+                $user = users::find(auth()->id());
+                $user->update([
+                    'password' =>  Hash::make($request->new_password)
+                ]);
+                Auth::logout();
+
+                $request->session()->invalidate();
+
+                $request->session()->regenerateToken();
+
+                return redirect('/login')->with('success', 'The password was successfully updated, please log in again!');;
+            }
+
+            return redirect()->back()->with('toast_warning', 'New password can not be the old password!');
+        }
+        return redirect()->back()->with('toast_warning', 'Old password does not matched!');
+    }
+
 
     public function updateDetail(Request $request)
     {

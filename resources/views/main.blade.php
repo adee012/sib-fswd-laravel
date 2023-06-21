@@ -90,7 +90,7 @@
                                 @csrf
                                 <button class="dropdown-item d-flex align-items-center" type="submit">
                                     <i class="bi bi-box-arrow-right"></i>
-                                    <span>Sign Out</span>
+                                    <span>Log Out</span>
                                 </button>
                             </form>
                         </li>
@@ -137,7 +137,7 @@
                         @if (Auth::user()->role == 'admin')
                             <li>
                                 <a href="{{ url('/validation-product') }}">
-                                    <i class="bi bi-circle"></i><span>Products</span>
+                                    <i class="bi bi-circle"></i><span>Products Approve</span>
                                 </a>
                             </li>
                         @endif
@@ -199,7 +199,7 @@
     {{-- ======= Footer ======= --}}
     <footer id="footer" class="footer bg-light ">
         <div class="copyright">
-            &copy; Copyright <strong><span>AdpersStore</span></strong>. Ade Dwi Putra
+            CreatedBy.<strong><span>Ade Dwi Putra &#9829;</span></strong>
         </div>
     </footer>
     {{-- End Footer --}}

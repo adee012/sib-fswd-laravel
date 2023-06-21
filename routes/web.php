@@ -27,8 +27,8 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/', [LandingController::class, 'index']);
     // Login
     Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'authenticate']);
-    Route::get('/register', [UsersController::class, 'showRegist']);
+    Route::post('/login-proses', [LoginController::class, 'authenticate']);
+    Route::get('/register', [UsersController::class, 'formRegist']);
     Route::post('/register', [UsersController::class, 'register']);
 });
 
@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/addUser', [UsersController::class, 'create'])->middleware(['access']);
     Route::get('/detail-user', [UsersController::class, 'show']);
     Route::put('/update-detail', [UsersController::class, 'updateDetail']);
+    Route::put('/change-password', [UsersController::class, 'changePassword']);
     Route::post('/addUser', [UsersController::class, 'store'])->name('user-new');
     Route::get('/users-edit/{id}', [UsersController::class, 'edit'])->middleware(['access']);
     Route::put('/user-edit', [UsersController::class, 'update'])->middleware(['access']);
@@ -86,8 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy'])->middleware(['access']);
 });
 
-Route::get('/detail-product/{id}', [ProductsController::class, 'detail']);
-
 Route::get('/home', function () {
     return redirect('dashboard');
+});
+
+Route::get('/registrasi', function () {
+    return view('login.register');
 });

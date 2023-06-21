@@ -23,14 +23,6 @@ class ProductsController extends Controller
         return view('products.products', compact('products'));
     }
 
-    public function detail(string $id)
-    {
-        $products = products::where('id', $id)->first();
-        $product = products::with(['categories'])->first();
-        // dd($products);
-        return view('products.detailProduct', compact('products', 'product'));
-    }
-
     /**
      * Show the form for creating a new resource.
      */

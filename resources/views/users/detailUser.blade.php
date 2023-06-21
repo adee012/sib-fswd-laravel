@@ -170,14 +170,19 @@
                                 {{-- Change password --}}
                                 <div class="tab-pane fade pt-3" id="profile-change-password">
                                     <!-- Form -->
-                                    <form>
+                                    <form action="{{ url('/change-password') }}" method="post">
+                                        @csrf
+                                        @method('put')
 
                                         <div class="row mb-3">
                                             <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
                                                 Password</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="password" type="password" class="form-control"
+                                                <input name="old_password" type="password" class="form-control"
                                                     id="currentPassword">
+                                                @error('old_password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -185,17 +190,29 @@
                                             <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
                                                 Password</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="newpassword" type="password" class="form-control"
+                                                <input name="new_password" type="password" class="form-control"
                                                     id="newPassword">
+                                                @error('new_password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter
-                                                New Password</label>
+                                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">
+                                                Re Enter Password</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="renewpassword" type="password" class="form-control"
-                                                    id="renewPassword">
+                                                <div class="input-group">
+                                                    <input id="password" type="password" class="form-control"
+                                                        name="password_confirmation" required autocomplete="new-password">
+                                                    <span class="input-group-text">
+                                                        <i id="toggle_password"
+                                                            class="fa fa-eye-slash toggle-password"></i>
+                                                    </span>
+                                                </div>
+                                                @error('password_confirmation')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -233,5 +250,20 @@
                 previews.style.display = "none";
             }
         }
+
+        document.getElementById('toggle_password').addEventListener('click', function() {
+            var passwordInput = document.getElementById('password');
+            var eyeIcon = document.getElementById('toggle_password');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        });
     </script>
 @endsection

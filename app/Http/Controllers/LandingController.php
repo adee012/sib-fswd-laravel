@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carousels;
 use App\Models\categories;
 use App\Models\products;
+use App\Models\users;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -14,11 +15,19 @@ class LandingController extends Controller
      */
     public function index()
     {
-        $Carousels = Carousels::all();
+
+        // 
+        $Carousels = Carousels::where('is_active', '1')->get();
         $categories = categories::all();
-        $produk = Products::select('category_id')->groupby('category_id')->get();
+        $produk = products::select('category_id')->groupby('category_id')->get();
         $products = products::with(['categories'])->get();
-        return view('index', compact('Carousels', 'products', 'categories', 'produk'));
+        $users = users::where('role', 'user')->get();
+
+        // Hitung jumlah data
+        $count_category = $categories->count();
+        $count_product = $products->count();
+        $count_user = $users->count();
+        return view('index', compact('Carousels', 'products', 'categories', 'produk', 'count_category', 'count_product', 'count_user'));
     }
 
     /**

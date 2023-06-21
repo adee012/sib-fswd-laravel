@@ -2,864 +2,460 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
     <title>Adpers Store</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{--  ====================================================================== --}}
-    <link rel="icon" type="image/png" href="{{ asset('admin/img/adpers.png') }}" />
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('assets/fonts/iconic/css/material-design-iconic-font.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/linearicons-v1.0.0/icon-font.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/animate/animate.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/css-hamburgers/hamburgers.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/animsition/css/animsition.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/select2/select2.min.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/slick/slick.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/MagnificPopup/magnific-popup.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
-    {{--  ====================================================================== --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
-    {{--  ====================================================================== --}}
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    {{-- Favicons --}}
+    <link href="{{ asset('admin/img/adpers.png') }}" rel="icon">
+
+    {{-- Google Fonts --}}
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    {{-- Vendor CSS Files --}}
+    <link href="{{ asset('assets/vendor/aos/aos.css" rel="stylesheet') }}">
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    {{-- Template Main CSS File --}}
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
 </head>
 
-<body class="animsition">
+<body>
 
-    {{-- Header --}}
-    <header>
-        {{-- Header desktop --}}
-        <div class="container-menu-desktop">
-            {{-- Topbar --}}
-            <div class="wrap-menu-desktop" style="top: 0">
-                <nav class="limiter-menu-desktop container">
-                    {{-- Logo desktop --}}
-                    <a href="#" class="logo">
-                        <img src="{{ asset('admin/img/logo.png') }}" alt="IMG-LOGO">
-                    </a>
+    {{-- ======= Header ======= --}}
+    <header id="header" class="header fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-                    {{-- Menu desktop --}}
-                    <div class="menu-desktop">
-                        <ul class="main-menu">
-                            <li class="active-menu">
-                                <a href="index.html">Home</a>
-                            </li>
+            <a href="#" class="logo d-flex align-items-center">
+                <span>AdpersStore</span>
+            </a>
 
-                            <li>
-                                <a href="product.html">Shop</a>
-                            </li>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#carouselExampleFade">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="#catalog">Catalog</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                    <li><a class="getstarted scrollto" href="{{ url('/login') }}">Login</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>{{-- .navbar --}}
 
-                            <li>
-                                <a href="shoping-cart.html">Features</a>
-                            </li>
-
-                            <li>
-                                <a href="blog.html">Blog</a>
-                            </li>
-
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-
-                            <li>
-                                <a href="contact.html">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {{-- Icon header --}}
-                    <div class="wrap-icon-header flex-w flex-r-m ">
-                        <a href="{{ url('/login') }}" class="hover-shadow border border-primary py-2 px-4"
-                            style="border-radius: 30px" role="button">
-                            <h6 style="letter-spacing: 1px">Login</h6>
-                        </a>
-                    </div>
-                </nav>
-            </div>
         </div>
+    </header>{{-- End Header --}}
 
-        {{-- Header Mobile --}}
-        <div class="wrap-header-mobile">
-            {{-- Logo moblie --}}
-            <div class="logo-mobile">
-                <img src="{{ asset('admin/img/logo.png') }}" alt="IMG-LOGO">
-            </div>
-
-            {{-- Button show menu --}}
-            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </div>
+    {{-- ======= Hero Section ======= --}}
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+            @foreach ($Carousels as $key => $banner)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                    <img src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}" class="d-block w-100"
+                        style="height: 640px" alt="...">
+                </div>
+            @endforeach
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    {{-- End Hero --}}
 
+    <main id="main">
+        {{-- ======= About Section ======= --}}
+        <section id="about" class="about">
 
-        {{-- Menu Mobile --}}
-        <div class="menu-mobile">
-            <ul class="main-menu-m">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+            <div class="container" data-aos="fade-up">
+                <div class="row gx-0">
 
-                <li>
-                    <a href="product.html">Shop</a>
-                </li>
-
-                <li>
-                    <a href="shoping-cart.html">Features</a>
-                </li>
-
-                <li>
-                    <a href="{{ url('/login') }}">Login</a>
-                </li>
-
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-
-    </header>
-
-    {{-- Slider --}}
-    <section class="section-slide">
-        <div class="wrap-slick1">
-            <div class="slick1">
-                @foreach ($Carousels as $key => $banner)
-                    @if ($banner->is_active == 1)
-                        <div class="item-slick1 {{ $key == 0 ? 'active' : '' }}">
-                            <img src="{{ asset('storage/carousels_banner') }}/{{ $banner->banner }}"
-                                style="width: 100%; height:100%" alt="">
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-
-    {{-- Banner --}}
-    {{-- <div class="sec-banner bg0 p-t-80 p-b-50">
-        <div class="container">
-            <div class="row">
-                @foreach ($products as $product)
-                    @if ($product->status == 'accepted')
-                        <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-                            
-                            <div class="block1 wrap-pic-w">
-                                <img src="images/banner-01.jpg" alt="IMG-BANNER">
-
-                                <a href="product.html"
-                                    class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-                                    <div class="block1-txt-child1 flex-col-l">
-                                        <span class="block1-name ltext-102 trans-04 p-b-8">
-                                            {{ $product->name }}
-                                        </span>
-
-                                        <span class="block1-info stext-102 trans-04">
-                                            {{ $product->price }}
-                                        </span>
-                                    </div>
-
-                                    <div class="block1-txt-child2 p-b-4 trans-05">
-                                        <div class="block1-link stext-101 cl0 trans-09">
-                                            Shop Now
-                                        </div>
-                                    </div>
+                    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="content">
+                            <h3>About Us</h3>
+                            <h2>Adpers Store is a shoe store that sells various types of shoes from various brands, from
+                                casual to formal.
+                            </h2>
+                            <p>
+                                This shop has been around since 2023, we sell various shoe brands with quality that you
+                                can't doubt. We also provide a new replacement warranty if within 3 months your shoes
+                                are damaged. Customer satisfaction is our priority.
+                            </p>
+                            <div class="text-center text-lg-start">
+                                <a href="https://bit.ly/43vsm9X"
+                                    class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                                    <span>Read More</span>
+                                    <i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
-                    @endif
-                @endforeach
+                    </div>
 
-            </div>
-        </div>
-    </div> --}}
+                    <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="{{ asset('assets/img/about-us.jpg') }}" class="img-fluid" alt=""
+                            style="height: 100%">
+                    </div>
 
-
-    {{-- Product --}}
-    <section class="bg0 p-t-23 p-b-140">
-        <div class="container">
-            <div class="p-b-10">
-                <h3 class="ltext-103 cl5">
-                    Product Overview
-                </h3>
+                </div>
             </div>
 
-            <div class="flex-w flex-sb-m p-b-52">
-                <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                        All Products
-                    </button>
+        </section>{{-- End About Section --}}
 
-                    @foreach ($produk as $product)
-                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-                            data-filter=".filter-{{ $product->categories->name }}">
-                            {{ $product->categories->name }}
-                        </button>
+        {{-- ======= Counts Section ======= --}}
+        <section id="counts" class="counts">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-emoji-smile"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
+                                    class="purecounter"></span>
+                                <p>Service</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-box" style="color: #ee6c20;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $count_category }}"
+                                    data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Category</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-boxes" style="color: #15be56;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $count_product }}"
+                                    data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Product</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-people" style="color: #bb0852;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $count_user }}"
+                                    data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Users</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>{{-- End Counts Section --}}
+
+        {{-- ======= Services Section ======= --}}
+        <section id="services" class="services">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Services</h2>
+                    <p>Customer satisfaction is our priority</p>
+                </header>
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-box blue">
+                            <i class="ri-award-fill icon"></i>
+                            <h3>Original Product</h3>
+                            <p>The goods we sell are 100% original, officially guaranteed and can be returned if the
+                                goods purchased are counterfeit.</p>
+                            <a href="#catalog" class="read-more"><span>Order Now</span> <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-box orange">
+                            <i class="ri-wallet-3-line icon"></i>
+                            <h3>Payment Options</h3>
+                            <p>There are many payment options and you can also pay directly on the spot, you can make
+                                payments via e-wallet or bank transfer.</p>
+                            <a href="#catalog" class="read-more"><span>Order Now</span> <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-box green">
+                            <i class="ri-time-line icon"></i>
+                            <h3>Fast Delivery</h3>
+                            <p>Fast delivery, items ordered at the shop open will be processed immediately, if outside
+                                opening hours then the next day.</p>
+                            <a href="#catalog" class="read-more"><span>Order Now</span> <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>{{-- End Services Section --}}
+
+        {{-- ======= catalog Section ======= --}}
+        <section id="catalog" class="portfolio">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>CATALOG</h2>
+                    <p>Check Our Product In The Catalog</p>
+                </header>
+
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            @foreach ($produk as $product)
+                                <li data-filter=".filter-{{ $product->categories->name }}">
+                                    {{ $product->categories->name }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                    @foreach ($products as $product)
+                        @if ($product->status == 'accepted')
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $product->categories->name }}">
+                                <div class="portfolio-wrap">
+                                    <img src="{{ asset('storage/image_product') }}/{{ $product->image }}"
+                                        class="img-fluid" alt="">
+                                    <div class="portfolio-info">
+                                        <h4>{{ $product->name }}</h4>
+                                        <h4>${{ $product->price }} USD</h4>
+                                        <div class="portfolio-links">
+                                            <a href="{{ asset('storage/image_product') }}/{{ $product->image }}"
+                                                data-gallery="portfolioGallery" class="portfokio-lightbox"
+                                                title="{{ $product->description }}"><i class="bi bi-eye"
+                                                    style="font-size: 18px"></i></a>
+                                            <a href="portfolio-details.html" title="Buy Now"><i
+                                                    class="bi bi-cart-plus" style="font-size: 18px"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
 
-                <div class="flex-w flex-c-m m-tb-10">
-                    <div
-                        class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-                        <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-                        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                        Filter
+            </div>
+
+        </section>{{-- End catalog Section --}}
+
+        {{-- ======= Team Section ======= --}}
+        <section id="team" class="team">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Team</h2>
+                    <p>Our hard working team</p>
+                </header>
+
+                <div class="row gy-4 gap-md-5 d-flex justify-content-center">
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="{{ asset('admin/img/Kumparan.jpg') }}" class="img-fluid"
+                                    style="height: 300px; width:100%" alt="">
+                                <div class="social">
+                                    <a href="https://bit.ly/3Jd0WxE" title="github" target="_blank"><i
+                                            class="bi bi-github"></i></a>
+                                    <a href="https://adee012.github.io/tugas2-fswd-arkatama/" title="resume"
+                                        target="_blank"><i class="bi bi-file-person"></i></a>
+                                    <a href="https://bit.ly/43vsm9X" title="instagram" target="_blank"><i
+                                            class="bi bi-instagram"></i></a>
+                                    <a href="https://bit.ly/43Crkco" title="linkedin" target="_blank"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Ade Dwi Putra</h4>
+                                <span>Web Programmer</span>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt
+                                    accusamus dolorum neque tempora temporibus quia laborum. </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-                        <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-                        <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                        Search
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="http://hardwaremon.my.id/assets/img/me.jpg" class="img-fluid "
+                                    style="height: 300px; width:100%" alt="">
+                                <div class="social">
+                                    <a href="https://bit.ly/45WEXER" title="github" target="_blank"><i
+                                            class="bi bi-github"></i></a>
+                                    <a href="https://andri-portofolio.vercell.app/" title="resume" target="_blank"><i
+                                            class="bi bi-file-person"></i></a>
+                                    <a href="https://bit.ly/3P5UFaG" title="instagram" target="_blank"><i
+                                            class="bi bi-instagram"></i></a>
+                                    <a href="https://bit.ly/43VO1YL" title="linkedin" target="_blank"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Andri Elistiawan</h4>
+                                <span>Web Programmer</span>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt
+                                    accusamus dolorum neque tempora temporibus quia laborum. </p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
-                {{-- Search product --}}
-                <div class="dis-none panel-search w-full p-t-10 p-b-15">
-                    <div class="bor8 dis-flex p-l-15">
-                        <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-                            <i class="zmdi zmdi-search"></i>
-                        </button>
+            </div>
 
-                        <input id="filter-search" class="mtext-107 cl2 size-114 plh2 p-r-15" type="text"
-                            name="search-product" placeholder="Search">
+        </section>{{-- End Team Section --}}
+
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Our Partner</h2>
+                    <p>Several Cooperating Partners</p>
+                </header>
+
+                <div class="clients-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/clients/nike.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/clients/mizuno.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/clients/converse.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/clients/puma.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/clients/ardiles.png') }}"
+                                class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/clients/adidas.png') }}"
+                                class="img-fluid" alt=""></div>
+
                     </div>
-                </div>
-
-                {{-- Filter --}}
-                <div class="dis-none panel-filter w-full p-t-10">
-                    <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-                        <div class="filter-col1 p-r-15 p-b-27">
-                            <div class="mtext-102 cl2 p-b-15">
-                                Sort By
-                            </div>
-
-                            <ul>
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Default
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Popularity
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Average rating
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                        Newness
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Price: Low to High
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Price: High to Low
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="filter-col2 p-r-15 p-b-27">
-                            <div class="mtext-102 cl2 p-b-15">
-                                Price
-                            </div>
-
-                            <ul>
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                        All
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $0.00 - $50.00
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $50.00 - $100.00
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $100.00 - $150.00
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $150.00 - $200.00
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        $200.00+
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="filter-col3 p-r-15 p-b-27">
-                            <div class="mtext-102 cl2 p-b-15">
-                                Color
-                            </div>
-
-                            <ul>
-                                <li class="p-b-6">
-                                    <span class="fs-15 lh-12 m-r-6" style="color: #222;">
-                                        <i class="zmdi zmdi-circle"></i>
-                                    </span>
-
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Black
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <span class="fs-15 lh-12 m-r-6" style="color: #4272d7;">
-                                        <i class="zmdi zmdi-circle"></i>
-                                    </span>
-
-                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                        Blue
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <span class="fs-15 lh-12 m-r-6" style="color: #b3b3b3;">
-                                        <i class="zmdi zmdi-circle"></i>
-                                    </span>
-
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Grey
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <span class="fs-15 lh-12 m-r-6" style="color: #00ad5f;">
-                                        <i class="zmdi zmdi-circle"></i>
-                                    </span>
-
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Green
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <span class="fs-15 lh-12 m-r-6" style="color: #fa4251;">
-                                        <i class="zmdi zmdi-circle"></i>
-                                    </span>
-
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        Red
-                                    </a>
-                                </li>
-
-                                <li class="p-b-6">
-                                    <span class="fs-15 lh-12 m-r-6" style="color: #aaa;">
-                                        <i class="zmdi zmdi-circle-o"></i>
-                                    </span>
-
-                                    <a href="#" class="filter-link stext-106 trans-04">
-                                        White
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="filter-col4 p-b-27">
-                            <div class="mtext-102 cl2 p-b-15">
-                                Tags
-                            </div>
-
-                            <div class="flex-w p-t-4 m-r--5">
-                                <a href="#"
-                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    Fashion
-                                </a>
-
-                                <a href="#"
-                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    Lifestyle
-                                </a>
-
-                                <a href="#"
-                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    Denim
-                                </a>
-
-                                <a href="#"
-                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    Streetstyle
-                                </a>
-
-                                <a href="#"
-                                    class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    Crafts
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
 
-            <div class="row isotope-grid">
-                @foreach ($products as $product)
-                    @if ($product->status == 'accepted')
-                        <div
-                            class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item filter-{{ $product->categories->name }}">
-                            {{-- Block2 --}}
-                            <div class="block2" id="#product-acc">
-                                <div class="block2-pic hov-img0 .filter-card">
-                                    <img src="{{ asset('storage/image_product') }}/{{ $product->image }}"
-                                        alt="IMG-PRODUCT">
+        </section><!-- End Clients Section -->
 
-                                    <button
-                                        class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 "
-                                        id="{{ $product->id }}">
-                                        Quick View
-                                    </button>
-                                </div>
-                                {{-- Modal1 --}}
-                                <div class="wrap-modal1 js-modal1  p-t-60 p-b-20" id="{{ $product->id }}">
-                                    <div class="overlay-modal1 js-hide-modal1"></div>
+    </main>{{-- End #main --}}
 
-                                    <div class="container">
-                                        <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-                                            <button class="how-pos3 hov3 trans-04 js-hide-modal1">
-                                                <img src="{{ asset('assets/images/icons/icon-close.png') }}"
-                                                    alt="CLOSE">
-                                            </button>
+    {{-- ======= Footer ======= --}}
+    <footer id="footer" class="footer">
 
-                                            <div class="row">
-                                                <div class="col-md-6 col-lg-7 p-b-30">
-                                                    <div class="p-l-25 p-r-30 p-lr-0-lg">
-                                                        <div class="wrap-slick3 flex-sb flex-w">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-12 footer-info">
+                        <a href="#" class="logo d-flex align-items-center">
 
-                                                            <div class="slick3 gallery-lb">
-                                                                <div class="item-slick3"
-                                                                    data-thumb="{{ asset('assets/images/product-detail-01.jpg') }}">
-                                                                    <div class="wrap-pic-w pos-relative">
-                                                                        <img src="{{ asset('assets/images/product-detail-01.jpg') }}"
-                                                                            alt="IMG-PRODUCT">
-
-                                                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-                                                                            href="{{ asset('assets/images/product-detail-01.jpg') }}">
-                                                                            <i class="fa fa-expand"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6 col-lg-5 p-b-30 mt-5">
-                                                    <div class="p-r-50 p-t-5 p-lr-0-lg">
-                                                        <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                                                            {{ $product->name }}
-                                                        </h4>
-
-                                                        <span class="mtext-106 cl2">
-                                                            $58.79
-                                                        </span>
-
-                                                        <p class="stext-102 cl3 p-t-23">
-                                                            Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus
-                                                            ligula. Mauris consequat
-                                                            ornare feugiat.
-                                                        </p>
-
-                                                        {{--  --}}
-                                                        <div class="p-t-33">
-
-                                                            <div class="flex-w flex-r-m p-b-10">
-                                                                <div class="size-203 flex-c-m respon6">
-                                                                    Size
-                                                                </div>
-
-                                                                <div class="size-204 respon6-next">
-                                                                    <div class="rs1-select2 bor8 bg0">
-                                                                        <select class="js-select2" name="time">
-                                                                            <option>Choose an option</option>
-                                                                            <option>39</option>
-                                                                            <option>40</option>
-                                                                            <option>41</option>
-                                                                            <option>42</option>
-                                                                        </select>
-                                                                        <div class="dropDownSelect2"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="flex-w flex-r-m p-b-10">
-                                                                <div class="size-204 flex-w flex-m respon6-next">
-                                                                    <div
-                                                                        class="wrap-num-product flex-w m-r-20 m-tb-10">
-                                                                        <div
-                                                                            class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                                            <i class="fs-16 zmdi zmdi-minus"></i>
-                                                                        </div>
-
-                                                                        <input
-                                                                            class="mtext-104 cl3 txt-center num-product"
-                                                                            type="number" name="num-product"
-                                                                            value="1">
-
-                                                                        <div
-                                                                            class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                                            <i class="fs-16 zmdi zmdi-plus"></i>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <button
-                                                                        class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                                                        Add to cart
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {{--  --}}
-                                                        <div class="flex-w flex-m p-l-100 p-t-40 respon7">
-                                                            <div class="flex-m bor9 p-r-10 m-r-11">
-                                                                <a href="#"
-                                                                    class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
-                                                                    data-tooltip="Add to Wishlist">
-                                                                    <i class="zmdi zmdi-favorite"></i>
-                                                                </a>
-                                                            </div>
-
-                                                            <a href="#"
-                                                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                                                                data-tooltip="Facebook">
-                                                                <i class="fa fa-facebook"></i>
-                                                            </a>
-
-                                                            <a href="#"
-                                                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                                                                data-tooltip="Twitter">
-                                                                <i class="fa fa-twitter"></i>
-                                                            </a>
-
-                                                            <a href="#"
-                                                                class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-                                                                data-tooltip="Google Plus">
-                                                                <i class="fa fa-google-plus"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt flex-w flex-t p-t-14">
-                                    <div class="block2-txt-child1 flex-col-l ">
-                                        <a href="product-detail.html"
-                                            class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                            {{ $product->name }}
-                                        </a>
-
-                                        <span class="stext-105 cl3">
-                                            ${{ $product->price }}
-                                        </span>
-                                    </div>
-
-                                    <div class="block2-txt-child2 flex-r p-t-3">
-                                        <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                            <i class="fa fa-search" style="font-size: 20px; color:grey"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <span>AdpersStore</span>
+                        </a>
+                        <p>Established since 2023, selling various kinds of shoes from various brands, original shoes,
+                            quality and official guarantee.</p>
+                        <div class="social-links mt-3">
+                            <a href="https://bit.ly/3Jd0WxE" title="github" target="_blank"><i
+                                    class="bi bi-github"></i></a>
+                            <a href="https://bit.ly/3qPcf8I" title="dribbble" target="_blank"><i
+                                    class="bi bi-dribbble"></i></a>
+                            <a href="https://bit.ly/43vsm9X" title="instagram" target="_blank"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a href="https://bit.ly/43Crkco" title="linkedin" target="_blank"><i
+                                    class="bi bi-linkedin"></i></a>
                         </div>
-                    @endif
-                @endforeach
-            </div>
+                    </div>
 
-            {{-- Load more --}}
-            <div class="flex-c-m flex-w w-full p-t-45">
-                <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-                    Load More
-                </a>
+                    <div class="col-lg-2 col-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#carouselExampleFade">Home</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#services">Services</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#catalog">Catalog</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#team">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#services">Original Product</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#services">Payment Option</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#services">Fast Delivery</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Curug, Gunung Sindur<br>
+                            Kabupaten Bogor <br><br>
+                            <strong>Phone:</strong> 085840901428<br>
+                            <strong>Email:</strong> adedwiputra16@gmail.com<br>
+                        </p>
+
+                    </div>
+
+                </div>
             </div>
         </div>
-    </section>
 
-
-    {{-- Footer --}}
-    <footer class="bg3 p-t-75 p-b-32">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        Categories
-                    </h4>
-
-                    <ul>
-                        @foreach ($produk as $product)
-                            <li class="p-b-10">
-                                <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                    {{ $product->categories->name }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        Help
-                    </h4>
-
-                    <ul>
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Track Order
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Returns
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Shipping
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                FAQs
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        GET IN TOUCH
-                    </h4>
-
-                    <p class="stext-107 cl7 size-201">
-                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us
-                        on (+1) 96 716 6879
-                    </p>
-
-                    <div class="p-t-27">
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                            <i class="fa fa-github"></i>
-                        </a>
-
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        Newsletter
-                    </h4>
-
-                    <form>
-                        <div class="wrap-input1 w-full p-b-4">
-                            <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
-                                placeholder="email@example.com">
-                            <div class="focus-input1 trans-04"></div>
-                        </div>
-
-                        <div class="p-t-18">
-                            <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                                Subscribe
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="p-t-40">
-                <p class="stext-107 cl6 txt-center">
-                    Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script> | Made with Ade Dwi Putra
-                </p>
+            <div class="copyright">
+                CreatedBy. <strong><span>Ade Dwi Putra</span></strong> &#9829;
             </div>
         </div>
-    </footer>
+    </footer>{{-- End Footer --}}
 
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-    {{-- Back to top --}}
-    <div class="btn-back-to-top" id="myBtn">
-        <span class="symbol-btn-back-to-top">
-            <i class="zmdi zmdi-chevron-up"></i>
-        </span>
-    </div>
+    {{-- Vendor JS Files --}}
+    <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
-
-
-    {{-- SCRIPT & LIBRARY JS --}}
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/animsition/js/animsition.min.js') }}"></script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/bootstrap/js/popper.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/select2/select2.min.js') }}"></script>
-    <script>
-        $(".js-select2").each(function() {
-            $(this).select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $(this).next('.dropDownSelect2')
-            });
-        })
-    </script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/slick/slick.min.js') }}"></script>
-    <script src="{{ asset('assets/js/slick-custom.js') }}"></script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/parallax100/parallax100.js') }}"></script>
-    <script>
-        $('.parallax100').parallax100();
-    </script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/MagnificPopup/jquery.magnific-popup.min.js') }}"></script>
-    <script>
-        $('.gallery-lb').each(function() { // the containers for all your galleries
-            $(this).magnificPopup({
-                delegate: 'a', // the selector for gallery item
-                type: 'image',
-                gallery: {
-                    enabled: true
-                },
-                mainClass: 'mfp-fade'
-            });
-        });
-    </script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/isotope/isotope.pkgd.min.js') }}"></script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
-    <script>
-        $('.js-addwish-b2').on('click', function(e) {
-            e.preventDefault();
-        });
-
-        $('.js-addwish-b2').each(function() {
-            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-            $(this).on('click', function() {
-                swal(nameProduct, "is added to wishlist !", "success");
-
-                $(this).addClass('js-addedwish-b2');
-                $(this).off('click');
-            });
-        });
-
-        $('.js-addwish-detail').each(function() {
-            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
-
-            $(this).on('click', function() {
-                swal(nameProduct, "is added to wishlist !", "success");
-
-                $(this).addClass('js-addedwish-detail');
-                $(this).off('click');
-            });
-        });
-
-        /*---------------------------------------------*/
-
-        $('.js-addcart-detail').each(function() {
-            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-            $(this).on('click', function() {
-                swal(nameProduct, "is added to cart !", "success");
-            });
-        });
-    </script>
-    {{--  ====================================================================== --}}
-    <script src="{{ asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script>
-        $('.js-pscroll').each(function() {
-            $(this).css('position', 'relative');
-            $(this).css('overflow', 'hidden');
-            var ps = new PerfectScrollbar(this, {
-                wheelSpeed: 1,
-                scrollingThreshold: 1000,
-                wheelPropagation: false,
-            });
-
-            $(window).on('resize', function() {
-                ps.update();
-            })
-        });
-    </script>
-    {{--  ====================================================================== --}}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#filter-search").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#product-acc .filter-card").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
-    {{--  ====================================================================== --}}
+    {{-- Template Main JS File --}}
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
