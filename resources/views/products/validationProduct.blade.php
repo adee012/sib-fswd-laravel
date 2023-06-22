@@ -22,6 +22,7 @@
                             <h3 class="fw-semibold">Admin Approval </h3>
                             <hr>
                         </div>
+
                         <div class="row row-cols-1 row-cols-md-4">
                             @foreach ($products as $key => $product)
                                 <div class="col col-md-4 py-2">
@@ -76,8 +77,8 @@
                                                                 class="fa fa-thumbs-down"></i></i></button>
                                                     @endif
                                                 </form>
-                                                <a href="/product-delete/{{ $product->id }}"id="deleteBtn" type="submit"
-                                                    name="delete" class="btn btn-danger"
+                                                <a href="{{ asset('/product-delete') }}/{{ $product->id }}"id="deleteBtn"
+                                                    type="submit" name="delete" class="btn btn-danger"
                                                     onclick="return confirm('Are you sure you want to delete the product ?')"
                                                     style="font-size:24px"><i class="fa fa-trash"></i></a>
                                             </div>

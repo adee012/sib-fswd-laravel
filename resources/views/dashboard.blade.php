@@ -21,7 +21,9 @@
                                             data-bs-target="#exampleModal{{ $product->id }}">
                                             <i class="zmdi zmdi-eye" style="font-size:24px"></i>
                                         </button>
-                                        <a href="#" class="ms-1 btn btn-primary btn-sm waves-effect"><i
+                                        <a target="_blank"
+                                            href="https://wa.me/+6285840901428?text=Halo%20saya%20ingin%20membeli%20sepatu%20%3A%20{{ $product->name }}%0A%0AData%20pembeli%0ANama%20%3A%0AAlamat%20%3A%0ANo%20Hp%20%3A%0ASize%20%3A%0A"
+                                            class="ms-1 btn btn-primary btn-sm waves-effect"><i
                                                 class="zmdi zmdi-shopping-basket" style="font-size:24px"></i></a>
                                     </div>
                                 </div>
@@ -38,7 +40,7 @@
                     {{-- Modal View --}}
                     <div class="modal fade" id="exampleModal{{ $product->id }}" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-4" id="exampleModalLabel">Detail Product</h1>

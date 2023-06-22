@@ -14,4 +14,14 @@ class Carousels extends Model
     protected $fillable = [
         'name', 'is_active', 'banner', 'created_by', 'verified_by'
     ];
+
+    public function CreatedUsers()
+    {
+        return $this->belongsTo(users::class, 'created_by', 'id');
+    }
+
+    public function VerifiedUsers()
+    {
+        return $this->belongsTo(users::class, 'verified_by', 'id');
+    }
 }

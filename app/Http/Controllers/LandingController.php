@@ -20,6 +20,7 @@ class LandingController extends Controller
         $Carousels = Carousels::where('is_active', '1')->get();
         $categories = categories::all();
         $produk = products::select('category_id')->where('status', 'accepted')->groupby('category_id')->get();
+        $filter_produk = $produk->first();
         $products = products::with(['categories'])->get();
         $users = users::where('role', 'user')->get();
 
@@ -27,7 +28,7 @@ class LandingController extends Controller
         $count_category = $categories->count();
         $count_product = $products->count();
         $count_user = $users->count();
-        return view('index', compact('Carousels', 'products', 'categories', 'produk', 'count_category', 'count_product', 'count_user'));
+        return view('index', compact('Carousels', 'products', 'categories', 'produk', 'count_category', 'count_product', 'count_user', 'filter_produk'));
     }
 
     /**

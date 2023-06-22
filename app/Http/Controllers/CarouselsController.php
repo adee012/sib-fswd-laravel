@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carousels;
+use App\Models\products;
+use App\Models\users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -123,7 +125,7 @@ class CarouselsController extends Controller
         $carousels = carousels::where('id', $id)->first();
 
         // Menghapus file lama dari storage
-        $delete = Storage::delete('public/carousels_banner/' . $carousels->avatar);
+        $delete = Storage::delete('public/carousels_banner/' . $carousels->banner);
         // Delete data dari database 
         $carousels->delete();
 

@@ -234,11 +234,15 @@
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
-                            @foreach ($produk as $product)
-                                <li data-filter=".filter-{{ $product->categories->name }}">
-                                    {{ $product->categories->name }}</li>
-                            @endforeach
+                            @if (!$filter_produk)
+                                <h5 class="text-danger">The product is currently unavailable!!</h5>
+                            @else
+                                <li data-filter="*" class="filter-active">All</li>
+                                @foreach ($produk as $product)
+                                    <li data-filter=".filter-{{ $product->categories->name }}">
+                                        {{ $product->categories->name }}</li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -258,7 +262,7 @@
                                                 data-gallery="portfolioGallery" class="portfokio-lightbox"
                                                 title="{{ $product->description }}"><i class="bi bi-eye"
                                                     style="font-size: 18px"></i></a>
-                                            <a href="portfolio-details.html" title="Buy Now"><i
+                                            <a href="{{ url('/dashboard') }}" title="Buy Now"><i
                                                     class="bi bi-cart-plus" style="font-size: 18px"></i></a>
                                         </div>
                                     </div>
