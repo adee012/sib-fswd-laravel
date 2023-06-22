@@ -17,7 +17,7 @@ class CarouselsController extends Controller
      */
     public function index()
     {
-        $carousels = Carousels::all();
+        $carousels = Carousels::with(['CreatedUsers', 'VerifiedUsers'])->get();
         return view('carousels.carousels', compact('carousels'));
     }
 
