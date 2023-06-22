@@ -6,7 +6,7 @@
             <h1 class="fs-2">Categories</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item">Product</li>
                     <li class="breadcrumb-item active">Categories</li>
                 </ol>
@@ -24,7 +24,7 @@
                             <div class="add-categories">
                                 <h3 class="fs-4 mt-3 text-dark">Add Categories</h3>
 
-                                <form action="/addCategories" method="post">
+                                <form action="{{ url('/addCategories') }}" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-11">
@@ -130,7 +130,7 @@
 
                                                         {{-- button delete --}}
                                                         <a href="/categories-delete/{{ $c->id }}"
-                                                            data-confirm-delete="true" class="btn btn-danger"
+                                                            class="btn btn-danger"
                                                             onclick="return confirm('Are you sure you want to delete the category ?')"
                                                             role="button"><i class="bi bi-trash-fill"></i></a>
                                                     </td>

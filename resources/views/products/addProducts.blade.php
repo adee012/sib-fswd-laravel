@@ -1,12 +1,9 @@
 @extends('main');
 @section('content')
     <main id="main" class="main">
-
-
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
-
                     <div class="card">
                         <div class="card-body">
                             <div class="card-header">
@@ -15,7 +12,7 @@
                             </div>
 
                             <div class="p-5">
-                                <form action="/addProduct" method="post" enctype="multipart/form-data">
+                                <form action="{{ url('/addProduct') }}" method="post" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="mb-3">

@@ -28,7 +28,8 @@
                 <form action="{{ url('/login-proses') }}" method="post">
                     @csrf
                     <div class="field input-field">
-                        <input name="email" value="{{ old('email') }}" type="email" placeholder="Email">
+                        <input name="email" class="@error('email') is-invalid @enderror" value="{{ old('email') }}"
+                            type="email" placeholder="Email">
                     </div>
                     @error('email')
                         <span class="text">{{ $message }}</span>
@@ -42,10 +43,9 @@
                         <span class="text">{{ $message }}</span>
                     @enderror
 
-
-                    <div class="form-link">
+                    {{-- <div class="form-link">
                         <a href="#" class="forgot-pass">Forgot password?</a>
-                    </div>
+                    </div> --}}
 
                     <div class="field button-field">
                         <button type="submit" name="btnLogin">Login</button>

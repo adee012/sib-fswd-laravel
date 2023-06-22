@@ -16,12 +16,6 @@ class DashboardController extends Controller
         return view('dashboard', compact('products'));
     }
 
-    public function index2()
-    {
-        // $products = products::all();
-        return view('dashboard.dashboard1');
-    }
-
     /**
      * Show the form for creating a new resource.
      */

@@ -15,9 +15,6 @@ class CategoriesController extends Controller
     {
         $category = categories::all();
 
-        $title = 'Delete User!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
         return view('categories.categories', compact('category'));
     }
 
@@ -42,7 +39,7 @@ class CategoriesController extends Controller
                 'name' => $request->name
             ]
         );
-        return redirect('/categories')->with('toast_success', 'Category Berhasil Ditambahkan!!');
+        return redirect('/categories')->with('toast_success', 'Category added successfully!!');
     }
 
     /**
@@ -58,9 +55,6 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $categories = categories::where('id', $id)->first();
-        // dd($categories);
-        return view('categories.categories', compact('categories'));
     }
 
     /**
@@ -71,7 +65,7 @@ class CategoriesController extends Controller
         $categories = categories::find($request->id)->update([
             'name' => $request->name
         ]);
-        return redirect('/categories')->with('toast_success', 'Category Berhasil Diupdate!!');
+        return redirect('/categories')->with('toast_success', 'Category successfully updated!!');
     }
 
     /**
@@ -84,6 +78,6 @@ class CategoriesController extends Controller
         // Delete data dari database 
         $categories->delete();
 
-        return redirect('/categories')->with('toast_success', 'Category Berhasil Dihapus!!');
+        return redirect('/categories')->with('toast_success', 'Category successfully deleted!!');
     }
 }

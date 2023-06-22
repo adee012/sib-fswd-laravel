@@ -1,8 +1,6 @@
 @extends('main');
 @section('content')
     <main id="main" class="main">
-
-
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -15,7 +13,7 @@
                             </div>
 
                             <div class="p-5">
-                                <form action="/product-edit" method="post" enctype="multipart/form-data">
+                                <form action="{{ url('/product-edit') }}" method="post" enctype="multipart/form-data">
                                     @method('put')
                                     @csrf
 
@@ -23,10 +21,9 @@
                                     <div class="mb-3">
                                         <label for="category" class="form-label">Category</label>
                                         <select name="category" id="category" class="form-select">
-                                            {{-- <option value="">{{ $products->category_id }}</option> --}}
-                                            <option selected>{{ $products->categories->name }}</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">
+                                                <option value="{{ $category->id }}"
+                                                    {{ $products->categories->id == $category->id ? 'selected' : '' }}>
                                                     {{ $category->name }}
                                                 </option>
                                             @endforeach
@@ -59,7 +56,8 @@
                                     <div class="mb-3 form-group">
                                         <label for="deskripsi" class="form-label">Description</label>
                                         <br />
-                                        <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3" patt>{{ $products->description }}</textarea>
+                                        <textarea name="deskripsi" id="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3"
+                                            patt>{{ $products->description }}</textarea>
                                         @error('deskripsi')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

@@ -6,7 +6,7 @@
             <h1 class="fs-2">Products</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item">Product</li>
                     <li class="breadcrumb-item active">Products</li>
                 </ol>
@@ -31,7 +31,7 @@
                                         <div class="card-body">
                                             <h3 class="card-title">{{ $product->name }}</h3>
                                             @if ($product->status == 'waiting')
-                                                <p class="card-text fw-bold text-dark btn btn-warning"> Waiting </p>
+                                                <p class="card-text fw-bold text-warning "> Waiting </p>
                                             @elseif ($product->status == 'accepted')
                                                 <p class="card-text fw-bold text-success"> Accepted </p>
                                             @elseif ($product->status == 'rejected')

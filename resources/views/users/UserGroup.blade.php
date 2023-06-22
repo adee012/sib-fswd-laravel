@@ -1,8 +1,6 @@
 @extends('main');
-
 @section('content')
     <main id="main" class="main">
-
         <div class="pagetitle">
             <h1 class="fs-2">User Group</h1>
             <nav>
@@ -85,42 +83,4 @@
         </section>
 
     </main><!-- End #main -->
-@endsection
-@section('script')
-    <script>
-        // let group = $('#filter_role').val();
-
-        // const table = $('#table').DataTable({
-        //     "ajax": {
-        //         url: "{{ url('/UserGroup') }}",
-        //         type: "POST",
-        //         data: function(d) {
-        //             d.group = group;
-
-        //             return d;
-        //         }
-        //     }
-        // });
-
-        // $(".filter").on('change', function() {
-        //     group = $('#filter_role').val();
-        //     table.ajax.reload(null, false);
-        // })
-
-        // $(document).ready(function() {
-        //     $('#filter_role').on('change', function() {
-        //         var filter = $(this).val();
-        //         $.ajax({
-        //             url: "{{ url('/UserGroup') }}",
-        //             type: "GET",
-        //             data: {
-        //                 'role': role
-        //             },
-        //             success: function(data) {
-        //                 console.log(data);
-        //             }
-        //         });
-        //     });
-        // });
-    </script>
 @endsection

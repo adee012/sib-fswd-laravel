@@ -71,7 +71,7 @@ class ProductsController extends Controller
             'created_by' => Auth::user()->id
         ]);
 
-        return redirect('/ProductList')->with('toast_success', 'Product Berhasil Disimpan!');
+        return redirect('/ProductList')->with('toast_success', 'Product added successfully!');
     }
 
     /**
@@ -144,7 +144,7 @@ class ProductsController extends Controller
             'status' => 'accepted'
         ]);
 
-        return redirect('/ProductList')->with('toast_success', 'Product Berhasil Diupdate!');
+        return redirect('/ProductList')->with('toast_success', 'The product has been successfully updated!');
     }
 
     /**
@@ -159,7 +159,7 @@ class ProductsController extends Controller
         // Delete data dari database 
         $products->delete();
 
-        return back()->with('toast_success', 'Product berhasil dihapus!!');
+        return back()->with('toast_success', 'The product was successfully deleted!!');
     }
 
     public function accepted(Request $request, $id)

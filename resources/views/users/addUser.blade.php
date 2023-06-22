@@ -29,7 +29,7 @@
                                     <div class="row">
                                         <div class="mb-3 col-6">
                                             <label for="role" class="form-label">Role</label>
-                                            <select name="role" id="role" class="form-control">
+                                            <select name="role" id="role" class="form-select ">
                                                 <option value="">-- Pilih Role --</option>
                                                 <option value="admin">Admin</option>
                                                 <option value="staff">Staff</option>

@@ -59,7 +59,7 @@ class CarouselsController extends Controller
             'created_by' => Auth::user()->id
         ]);
 
-        return redirect('/carousels')->with('toast_success', 'Carousels berhasil ditambahkan!!');
+        return redirect('/carousels')->with('toast_success', 'Carousel added successfully!!');
     }
 
     /**
@@ -127,6 +127,6 @@ class CarouselsController extends Controller
         // Delete data dari database 
         $carousels->delete();
 
-        return back()->with('toast_success', 'Data berhasil dihapus!!');
+        return back()->with('toast_success', 'The carousel was successfully removed!!');
     }
 }

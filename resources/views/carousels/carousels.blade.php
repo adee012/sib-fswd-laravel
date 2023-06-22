@@ -7,7 +7,7 @@
             <h1 class="fs-2">Carousels</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item">Product</li>
                     <li class="breadcrumb-item active">Carousels</li>
                 </ol>
@@ -116,8 +116,8 @@
                                                         @endif
                                                     </form>
 
-                                                    <a href="/carousels-delete/{{ $banner->id }}" id="deleteBtn"
-                                                        type="submit" name="delete" class="btn btn-danger"
+                                                    <a href="{{ url('/carousels-delete') }}/{{ $banner->id }}"
+                                                        id="deleteBtn" type="submit" name="delete" class="btn btn-danger"
                                                         onclick="return confirm('Are you sure you want to delete the banner ?')"
                                                         style="font-size:24px"><i class="fa fa-trash"></i></a>
                                                 </div>

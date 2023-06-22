@@ -14,7 +14,7 @@
 
                             <div class="p-5">
 
-                                <form action="/user-edit" method="post" enctype="multipart/form-data">
+                                <form action="{{ url('/user-edit') }}" method="post" enctype="multipart/form-data">
                                     @method('put')
                                     @csrf
 
@@ -32,11 +32,13 @@
                                     <div class="row">
                                         <div class="mb-3 col-6">
                                             <label for="role" class="form-label">Role</label>
-                                            <select name="role" id="role" class="form-control">
-                                                <option selected>{{ $users->role }}</option>
-                                                <option value="admin">Admin</option>
-                                                <option value="staff">Staff</option>
-                                                <option value="user">User</option>
+                                            <select class="form-select" name="role">
+                                                <option value="admin" {{ $users->role == 'admin' ? 'selected' : '' }}>
+                                                    Admin</option>
+                                                <option value="staff" {{ $users->role == 'staff' ? 'selected' : '' }}>
+                                                    Staff</option>
+                                                <option value="user" {{ $users->role == 'user' ? 'selected' : '' }}>
+                                                    Users</option>
                                             </select>
                                             @error('role')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -56,7 +58,8 @@
                                     <div class="row">
                                         <div class="mb-3 col-6">
                                             <label for="email" class="form-label">Email User</label>
-                                            <input value="{{ $users->email }}" type="email" class="form-control"
+                                            <input value="{{ $users->email }}" type="email"
+                                                class="form-control @error('email') is-invalid @enderror"
                                                 placeholder="Email..." name="email" id="email" />
                                             @error('email')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -66,7 +69,8 @@
 
                                         <div class="mb-3 col-6">
                                             <label for="phone" class="form-label">Phone User</label>
-                                            <input value="{{ $users->phone }}" type=”text” class="form-control"
+                                            <input value="{{ $users->phone }}" type=”text”
+                                                class="form-control @error('phone') is-invalid @enderror"
                                                 placeholder="Phone..." name="phone" id="phone" />
                                             @error('phone')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -78,7 +82,7 @@
                                     <div class="mb-3 form-group">
                                         <label for="address" class="form-label">Alamat User</label>
                                         <br />
-                                        <textarea name="address" id="address" class="form-control" rows="3" patt>{{ $users->addres }}</textarea>
+                                        <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror" rows="3" patt>{{ $users->addres }}</textarea>
                                         @error('address')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

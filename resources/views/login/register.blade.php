@@ -28,21 +28,24 @@
                 <form action="{{ url('/register') }}" method="post">
                     @csrf
                     <div class="field input-field">
-                        <input value="{{ old('name') }}" name="name" type="name" placeholder="Full Name">
+                        <input class="@error('name') is-invalid @enderror" value="{{ old('name') }}" name="name"
+                            type="name" placeholder="Full Name">
                     </div>
                     @error('name')
                         <span class="text">{{ $message }}</span>
                     @enderror
 
                     <div class="field input-field">
-                        <input value="{{ old('email') }}" name="email" type="email" placeholder="Email">
+                        <input class="@error('email') is-invalid @enderror" value="{{ old('email') }}" name="email"
+                            type="email" placeholder="Email">
                     </div>
                     @error('email')
                         <span class="text">{{ $message }}</span>
                     @enderror
 
                     <div class="field input-field">
-                        <input value="{{ old('phone') }}" name="phone" type="number" placeholder="Phone">
+                        <input class="@error('phone') is-invalid @enderror" value="{{ old('phone') }}" name="phone"
+                            type="number" placeholder="Phone">
                     </div>
                     @error('phone')
                         <span class="text">{{ $message }}</span>

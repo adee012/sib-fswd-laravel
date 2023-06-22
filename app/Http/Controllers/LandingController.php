@@ -19,7 +19,7 @@ class LandingController extends Controller
         // 
         $Carousels = Carousels::where('is_active', '1')->get();
         $categories = categories::all();
-        $produk = products::select('category_id')->groupby('category_id')->get();
+        $produk = products::select('category_id')->where('status', 'accepted')->groupby('category_id')->get();
         $products = products::with(['categories'])->get();
         $users = users::where('role', 'user')->get();
 

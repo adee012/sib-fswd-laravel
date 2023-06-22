@@ -30,7 +30,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-        return back()->with('error', 'Email atau Password Salah!!');
+        return back()->with('error', 'Incorrect email or password!!');
     }
 
     public function logout(Request $request)

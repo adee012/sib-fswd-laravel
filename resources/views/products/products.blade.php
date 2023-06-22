@@ -7,7 +7,7 @@
             <h1 class="fs-2">Product List</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item">Product</li>
                     <li class="breadcrumb-item active">Product List</li>
                 </ol>
@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <div class="card-header">
                                 <!-- Button to Open the Modal -->
-                                <a href="/addProduct" type="button" class="btn btn-primary"> Add products
+                                <a href="{{ url('/addProduct') }}" type="button" class="btn btn-primary"> Add products
                                 </a>
 
                             </div>
@@ -60,13 +60,13 @@
                                                     @if (Auth::user()->role == 'admin')
                                                         <td>
                                                             {{-- button update --}}
-                                                            <a href="/product-edit/{{ $p->id }}"
+                                                            <a href="{{ url('/product-edit') }}/{{ $p->id }}"
                                                                 class="btn btn-primary " role="button"><i
                                                                     class="bi bi-pencil-square"
                                                                     style="font-size:20px"></i></a>
 
                                                             {{-- button delete --}}
-                                                            <a href="/product-delete/{{ $p->id }}"
+                                                            <a href="{{ url('/product-delete') }}/{{ $p->id }}"
                                                                 class=" btn btn-danger" role="button"
                                                                 onclick="return confirm('Are you sure you want to delete the product ?')"><i
                                                                     class="bi bi-trash-fill" style="font-size:20px"></i></a>

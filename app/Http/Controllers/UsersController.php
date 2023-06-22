@@ -22,6 +22,7 @@ class UsersController extends Controller
         return view('users.UsersList', compact('users'));
     }
 
+    // function user group start
     public function group(Request $request)
     {
         $users = users::all();
@@ -45,6 +46,7 @@ class UsersController extends Controller
         $users = users::where('role', 'admin')->get();
         return view('users.UserGroup', compact('users'));
     }
+    // function user group end
 
     /**
      * Show the form for creating a new resource.
@@ -98,7 +100,7 @@ class UsersController extends Controller
             'password' =>  Hash::make($request->password)
         ]);
 
-        return redirect('/UsersList')->with('toast_success', 'Data Berhasil Disimpan!');
+        return redirect('/UsersList')->with('toast_success', 'User added successfully!');
         // dd($request->all());
     }
 
@@ -175,7 +177,7 @@ class UsersController extends Controller
         ]);
         // dd($request->all());
 
-        return redirect('/UsersList')->with('toast_success', 'Data berhasil diupdate!!');
+        return redirect('/UsersList')->with('toast_success', 'User successfully updated!!');
     }
 
     /**
@@ -192,7 +194,7 @@ class UsersController extends Controller
         // Delete data dari database 
         $users->delete();
 
-        return back()->with('toast_success', 'Data berhasil dihapus!!');
+        return back()->with('toast_success', 'User successfully deleted!!');
     }
 
     // Regist User
@@ -319,6 +321,6 @@ class UsersController extends Controller
         ]);
         // dd($users);
 
-        return redirect('/detail-user')->with('toast_success', 'Data berhasil diupdate!!');
+        return redirect('/detail-user')->with('toast_success', 'DYour data has been successfully updated!!');
     }
 }

@@ -32,21 +32,19 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/register', [UsersController::class, 'register']);
 });
 
-
-Route::get('/dashboard1', [DashboardController::class, 'index2']);
 // Untuk mengakses halaman admin/dashboard maka harus login terlebih dahulu
 Route::middleware(['auth'])->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
-    // User List
+    // User Controller
     Route::get('/UsersList', [UsersController::class, 'index'])->middleware(['access']);
     Route::get('/addUser', [UsersController::class, 'create'])->middleware(['access']);
+    Route::post('/addUser', [UsersController::class, 'store'])->name('user-new');
     Route::get('/detail-user', [UsersController::class, 'show']);
     Route::put('/update-detail', [UsersController::class, 'updateDetail']);
     Route::put('/change-password', [UsersController::class, 'changePassword']);
-    Route::post('/addUser', [UsersController::class, 'store'])->name('user-new');
     Route::get('/users-edit/{id}', [UsersController::class, 'edit'])->middleware(['access']);
     Route::put('/user-edit', [UsersController::class, 'update'])->middleware(['access']);
     Route::get('/users-delete/{id}', [UsersController::class, 'destroy'])->middleware(['access']);
@@ -57,9 +55,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/staff-group', [UsersController::class, 'role_staff'])->middleware(['access']);
     Route::get('/user-group', [UsersController::class, 'role_user'])->middleware(['access']);
 
-    // Products
+    // Products Controller
     Route::get('/ProductList', [ProductsController::class, 'index'])->middleware(['access']);
-
     Route::get('/addProduct', [ProductsController::class, 'create'])->middleware(['access']);
     Route::post('/addProduct', [ProductsController::class, 'store'])->middleware(['access']);
     Route::get('/product-edit/{id}', [ProductsController::class, 'edit'])->middleware(['access']);
@@ -69,19 +66,15 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/products-rejected/{id}', [ProductsController::class, 'rejected'])->middleware(['access']);
     Route::put('/products-accepted/{id}', [ProductsController::class, 'accepted'])->middleware(['access']);
 
-    // Categories
+    // Categories Controller
     Route::get('/categories', [CategoriesController::class, 'index'])->middleware(['access']);
-    Route::get('/addCategories', [CategoriesController::class, 'create'])->middleware(['access']);
     Route::post('/addCategories', [CategoriesController::class, 'store'])->middleware(['access']);
-    Route::get('/categories-edit/{id}', [CategoriesController::class, 'edit'])->middleware(['access']);
     Route::put('/categories-edit', [CategoriesController::class, 'update'])->middleware(['access']);
     Route::get('/categories-delete/{id}', [CategoriesController::class, 'destroy'])->name('delete')->middleware(['access']);
 
-    // Carousels
+    // Carousels Controller
     Route::get('/carousels', [CarouselsController::class, 'index'])->middleware(['access']);
-    Route::get('/addCarousels', [CarouselsController::class, 'create'])->middleware(['access']);
     Route::post('/addCarousels', [CarouselsController::class, 'store'])->middleware(['access']);
-    Route::get('/carousels-accepted/{id}', [CarouselsController::class, 'edit'])->middleware(['access']);
     Route::put('/carousels-rejected/{id}', [CarouselsController::class, 'rejected'])->middleware(['access']);
     Route::put('/carousels-accepted/{id}', [CarouselsController::class, 'update'])->middleware(['access']);
     Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy'])->middleware(['access']);
@@ -89,8 +82,4 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/home', function () {
     return redirect('dashboard');
-});
-
-Route::get('/registrasi', function () {
-    return view('login.register');
 });

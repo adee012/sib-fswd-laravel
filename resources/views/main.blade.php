@@ -108,7 +108,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
             <!-- Start Dashboard Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link " href="{{ url('/dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -181,15 +181,6 @@
                 </a>
             </li>
             <!-- End Profile Page Nav -->
-
-
-            {{-- <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.html">
-                    <i class="bi bi-envelope"></i>
-                    <span>Contact</span>
-                </a>
-            </li> --}}
-            <!-- End Contact Page Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->

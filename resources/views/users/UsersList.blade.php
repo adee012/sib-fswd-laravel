@@ -61,18 +61,17 @@
                                                 @if (Auth::user()->role == 'admin')
                                                     <td class="text-center">
                                                         {{-- button update --}}
-                                                        <a href="/users-edit/{{ $u->id }}" class="btn btn-primary"
-                                                            role="button"><i class="bi bi-pencil-square"></i></a>
+                                                        <a href="{{ url('/users-edit') }}/{{ $u->id }}"
+                                                            class="btn btn-primary" role="button"><i
+                                                                class="bi bi-pencil-square"></i></a>
 
                                                         {{-- button delete --}}
-                                                        <a href="/users-delete/{{ $u->id }}" class="btn btn-danger"
-                                                            role="button"
+                                                        <a href="{{ url('/users-delete') }}/{{ $u->id }}"
+                                                            class="btn btn-danger" role="button"
                                                             onclick="return confirm('Are you sure you want to delete the user ?')"><i
                                                                 class="bi bi-trash-fill"></i></a>
                                                     </td>
                                                 @endif
-
-
                                             </tr>
                                         @empty
                                             <tr>
