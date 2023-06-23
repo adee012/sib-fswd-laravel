@@ -211,13 +211,12 @@ class UsersController extends Controller
             $request->all(),
             [
                 'name' => 'required|string',
-                'password' => 'required|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+                'password' => 'required|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|min:10|max:13',
             ],
             [
-                'password.regex' => 'Minimum 6 characters, consisting of uppercase, lowercase, numbers and symbols',
-                'password.confirmed' => 'Password tidak sama'
+                'password.regex' => 'Minimum 6 characters, consisting of uppercase, lowercase, numbers and symbols'
             ]
         );
 

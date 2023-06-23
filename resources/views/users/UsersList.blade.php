@@ -55,9 +55,14 @@
                                                 <td>{{ $u->role }}</td>
                                                 <td>{{ $u->phone }}</td>
                                                 <td>{{ $u->addres }}</td>
-                                                <td class="text-center"><img width="100px" height="100px"
-                                                        src="{{ asset('storage/avatar') }}/{{ $u->avatar }}">
-                                                </td>
+                                                @if ($u->avatar == null)
+                                                    <td class="text-center"><img width="100px" height="100px"
+                                                            src="{{ asset('admin/img/default.jpg') }}">
+                                                    @else
+                                                    <td class="text-center"><img width="100px" height="100px"
+                                                            src="{{ asset('storage/avatar') }}/{{ $u->avatar }}">
+                                                    </td>
+                                                @endif
                                                 @if (Auth::user()->role == 'admin')
                                                     <td class="text-center">
                                                         {{-- button update --}}
